@@ -1,0 +1,126 @@
+---
+title: "PRI Canadian O&G"
+author: Orin Crouse, Erin Austin, Adam Spiegler
+date: last-modified
+format:
+  html:
+    code-fold: true
+    code-tools: true
+editor: visual
+---
+```{r setup, include=FALSE}
+library(DiagrammeR)
+library(tibble)
+library(tidyr)
+library(readr)
+library(dplyr)
+library(ggpubr)
+library(ggplot2)
+library(stringi)
+library(stringr)
+
+data <- read_csv("https://raw.githubusercontent.com/omcrouse/OrinCrouse/main/Fellow.csv")
+```
+
+
+<h1 style="text-align: center;">Political Risk Insurance for Canadian Oil and Gas Companies</h1>
+
+
+<h2 style="text-align: center;">Orin Crouse, Erin Austin, Adam Spiegler</h2>
+
+<h3 style="text-align: center;">Abstract</h3>
+
+  This paper explores the concept of Political Risk Insurance (PRI) for Canadian Oil and Gas companies. The examination is to determine whether these companies should seek out PRI with results that hope to show the benefits or consequences. Having the conditions of the country's influence from the business cycle, rare world changing events, and federal elections. Simulations that have changes in probabilities and random distributions to cover possible outcomes and repeat a thousand times. The results show that the rare usage of PRI is simply a lack of knowledge. Another finding is that from a policy point of view, companies see an ebb and flow with revenue. So, why spend money in attempt to sway the outcome of elections if it is shown to futile.
+
+# 1. Introduction
+
+  We sought to to answer the question "Why isn't political risk insurance used more widely and freely?". For our discussion we wanted to narrow the focus down. Down to one market in a single country. The reason to choose oil and gas was because there would be, as we hoped, more data available along with more controversies surrounding oil and gas. This would lead to better findings and stronger statements. 
+
+  This idea came about because of **COVID-19***#*#*#*#*#
+
+{{< pagebreak >}}
+# 2. Conceptual Framework 
+
+  The frame for this was to build essentially a flowchart, a really big flowchart. Starting with the first year 1998, as far back as we could go in finding the data (explained in later section). The year 1998 was an election for Canada and so the branches off of 1998 would be two, and labeled Liberal or Conservative. This is the same for each election year. Following an election year would be another set of two branches, one for Expansion and one for Contraction. These mark what the following year would be for the business cycle of Canada. In the first case we are saying given a Liberal/Conservative win in 1998, there could be a Expansion/Contraction in the year 1999. The time span we looked at is from 1998 to 2021, and in this time span there were 8 elections; 1998, 2001, 2005, 2007, 2009, 2012, 2016, 2020. Every year in between would be marked as a business cycle year. This model, as discussed more in further sections, could be built upon to add more variables, but for now we wanted see what impacted elections and the business cycle had on predicted revenue. 
+
+  For the purpose of this paper we looked at the year following an election. Did the result of that election have an impact of the business cycle that would lead to a decrease or increase in predicted revenue. For this, it is an input of the actual amount (again in 2022 dollars) earned by all companies at the start of an election year. Now this could be a wide range and differ quite a lot with companies entering and exiting the market, so we took the median amount each time. This would for better control and eliminate the risk of skewness due to outliers. This median amount is used, and then through processing (that it is described in better detail later), we receive a predicted amount at the end of the business cycle year. Comparing that to the actual earned amount we can see: one, how accurate  
+  
+
+```{r}
+#| fig-cap: "Flowchart base"
+#| cap-location: margin
+
+
+grViz(diagram = "digraph flowchart {
+  node [fontname = arial, shape = oval]
+  tab1 [label = '@@1']
+  tab2 [label = '@@2']
+  tab3 [label = '@@3']
+  tab4 [label = '@@4']
+  tab5 [label = '@@5']
+  tab6 [label = '@@6']
+  tab7 [label = '@@7']
+  
+  tab1 -> tab2;
+  tab1 -> tab3;
+  tab2 -> tab4;
+  tab2 -> tab5;
+  tab3 -> tab6;
+  tab3 -> tab7
+}
+  
+  [1]: '1998 Election'
+  [2]: 'Conservation'    
+  [3]: 'Liberal' 
+  [4]: '1999 Expansion'
+  [5]: '1999 Contraction' 
+  [6]: '1999 Expansion'
+  [7]: '1999 Contraction'
+  "
+)
+```
+  
+{{< pagebreak >}}
+# 3. Data
+
+## 3.1 Data Source
+
+  Data was primarily observed from The System for Electronic Document Analysis and Retrieval (SEDAR) which is a filing system developed for the Canadian Securities Administrators. Similar to the United States Securities and Exchange Commission (SEC), but is not a federal or province entity, but rather is 
+	“is the official site that provides access to most public securities documents and information filed by issuers with the thirteen provincial and territorial securities regulatory authorities ("Canadian Securities Administrators" or "CSA") in the SEDAR filing system. The statutory objective in making public this filed information is to enhance investor awareness of the business and affairs of issuers and to promote confidence in the transparent operation of capital markets in Canada. Achieving this objective relies heavily on the provision of accurate information on market participants ” (SEDAR, 2022). 
+
+  We used SEDAR as the point of reference to collect oil and gas producing revenue from as many oil and gas companies from Canada that are reported and filled at SEDAR. These fillings go back to 1990, but most data only dates back to 1997 and this is where the *discussion* starts. Using the median value of revenue from all oil and gas companies from 1997, $2.09 billion (Canadian dollars). This amount is translated with inflation into today’s current dollars. This process was accomplished by using data from the Economic Research in the U.S. Federal Reserve Bank of St. Louis (FRED)
+
+  The  following years were observed to look at elections from 1998 to 2021 from the website directly from the Parliament of Canada. This was to determine which parties were elected to the majority and the probability of those parties. The probabilities were found from various polling firms. From these polls, the data taken was only pertaining to the liberal and conservative parties. The other parties were left out as to they did provide a significant impact (**Insert Evidence**)
+
+  Each year that falls in-between elections were tracked by the business cycle for Canada, whether the aggregate of each year individually was an expansion year or contraction year. Although the business cycle fluctuates more within a year, the aggregate for the whole year was used as this influences voting more so (**Insert Evidence**). This data was found from FRED.
+
+
+
+## 3.2 Data processing
+
+  The data was pulled, and formatted in order to show an easy representation that can be read easily. The dollar amount of each was translated with the Consumer Price Index (CPI) calculator (from the Bank of Canada) to show each year’s revenue into the dollar amount of 2021. Meaning, given the graph below (Will Reformat tables and graphs to reference better)  you can see that 1997’s revenue dollar amount is multiplied by 1.5740 to be the equivalent amount if that was earned in 2021.
+
+
+```{r}
+#| fig-cap: "Revenue earned by all companies together per year. Each year is in today's dollars (as of 2022)."
+#| cap-location: margin
+
+boxplot(Revenue ~ Year, data=data, ylim=c(100000, 160000000000))
+```
+
+
+
+
+  The simulation started in the year 1998 where from the polling information it was determined that the liberal party had a 53% chance of winning over the conservative party at 47%. Every year following, whether calculating for the business cycle or for the next election, the probabilities were based on the given condition of the previous year. It follows as such that in 1999 there was no election, so the business cycle was calculated. This was seen has there being a 99% of expansion following a liberal win, there being a 67% chance of contraction following a conservative win. Probability for a contraction year is simply 1 minus the probability of growth. Similarly, the next election was in 2001 and it follows that the probability for a liberal win following an expansion is 75% while following a contraction is 67%. Again it follows that the probability of not winning is simply the 1 minus the probability of winning. 
+  
+  With calculations following election years, it is used that a expansion rate of 1.021 and a contraction rate of 1.016. These rates were calculated with the found aggregate for each year, compiled together, and then set for the average rate over the 22 year time span. The rates are used with random normal distribution to predict an amount of revenue that all companies median revenue amount would end in. For the expansion rate, there is a mean of 2.07 and a standard deviation of 0.64. For the contraction rate, there is a mean of 1.63 and a standard deviation of 1.27. 
+  
+  The amount for post year is used to determine an insurance amount. This amount is would be the coverage amount that should be sought after in order to protect profit. If the business cycle for the year is expansion, the predicted post amount is multiplied by .95, but if it is a contraction the predicted post amount is multiplied by .60. If there is an expansion following an election, a company should experience growth in revenue, therefore, there should not be a reason for insurance to be used if there is no loss experienced. As for a contraction, a loss in revenue not only could happen but is expected. With the economy of the country going through a downturn, a company for oil and gas would not be able to not experience the same. The hope would be to use an insurance policy to cover any and all loss. We use the value of 60% as a baseline to determine if there is a correlation, and enough to show that there is evidence to a reason for PRI. The reason why the insurance is not more than 60%, is for the insurance company (input more reason given reading articles as to why this is 60 and not closer to 80 or 85) also needs to mitigate loss. The remaining 40% from the predicted amount would be the amount given to an insurance company in premiums and a deductible to use the policy.
+
+
+## 3.3 Data Results
+
+  The results from the simulation was interesting to say the least. Different outcomes came from different inputs, as expected, but when there were similar inputs, there were not so similar outputs. ^&. We also see when there are different inputs, there would be similar outputs. For example, the years 1999 and 2021, both followed elections that led to a Liberal win. Now 1999 was an expansion year while 2021 was a contraction. For both years the prediction model under performed greatly from the actual end of year amount was (2021 even more so). How can we explain the differences? This would a be a great question for another analysis, all we can say is that different time periods are less predictable than others. 
+  
+  Amoung the well predicted 
+

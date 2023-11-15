@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PRIOilandGas",
+    "section": "",
+    "text": "I will upload my project from Data2Policy here.\nHopefully this helps me get a highly paid position in a very fun career field.\n\n\n-Proficient in programs R, Python, and Microsoft Office Suite.\n-Fully capable of preforming independent research (see below [where I will fill in more of project])\n-Able to be trained with quick turn around to train others to same high level standard\n\n\n\n-College courses for Mathematics were focused on statistics, regression, and applied programming\n-College courses for Economics were focused on econometrics, and macro.\n-Research developed while at the university was a combination of above."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Line Added 11/13/2023\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "hoobies.html",
+    "href": "hoobies.html",
+    "title": "Hobbies",
+    "section": "",
+    "text": "I like to snowboard, play with my dogs, and read."
+  },
+  {
+    "objectID": "hoobies.html#in",
+    "href": "hoobies.html#in",
+    "title": "Political Risk Insurance for Canadian Oil and Gas Companies",
+    "section": "In",
+    "text": "In"
+  },
+  {
+    "objectID": "hoobies.html#introduction",
+    "href": "hoobies.html#introduction",
+    "title": "PRI Canadian O&G",
+    "section": "Introduction",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "PRI.html",
+    "href": "PRI.html",
+    "title": "PRI Canadian O&G",
+    "section": "",
+    "text": "Political Risk Insurance for Canadian Oil and Gas Companies\nThis paper explores the concept of Political Risk Insurance (PRI) for Canadian Oil and Gas companies. The examination is to determine whether these companies should seek out PRI with results that hope to show the benefits or consequences. Having the conditions of the country’s influence from the business cycle, rare world changing events, and federal elections. Simulations that have changes in probabilities and random distributions to cover possible outcomes and repeat a thousand times. The results show that the rare usage of PRI is simply a lack of knowledge. Another finding is that from a policy point of view, companies see an ebb and flow with revenue. So, why spend money in attempt to sway the outcome of elections if it is shown to futile."
+  },
+  {
+    "objectID": "PRI.html#introduction",
+    "href": "PRI.html#introduction",
+    "title": "PRI Canadian O&G",
+    "section": "1. Introduction",
+    "text": "1. Introduction"
+  },
+  {
+    "objectID": "PRI.html#conceptual-framework",
+    "href": "PRI.html#conceptual-framework",
+    "title": "PRI Canadian O&G",
+    "section": "2. Conceptual Framework",
+    "text": "2. Conceptual Framework"
+  },
+  {
+    "objectID": "PRI.html#data",
+    "href": "PRI.html#data",
+    "title": "PRI Canadian O&G",
+    "section": "3. Data",
+    "text": "3. Data"
+  },
+  {
+    "objectID": "PRI.html#data-source",
+    "href": "PRI.html#data-source",
+    "title": "PRI Canadian O&G",
+    "section": "3.1 Data Source",
+    "text": "3.1 Data Source\nData was primarily observed from The System for Electronic Document Analysis and Retrieval (SEDAR) which is a filing system developed for the Canadian Securities Administrators. Similar to the United States Securities and Exchange Commission (SEC), but is not a federal or province entity, but rather is “is the official site that provides access to most public securities documents and information filed by issuers with the thirteen provincial and territorial securities regulatory authorities (”Canadian Securities Administrators” or “CSA”) in the SEDAR filing system. The statutory objective in making public this filed information is to enhance investor awareness of the business and affairs of issuers and to promote confidence in the transparent operation of capital markets in Canada. Achieving this objective relies heavily on the provision of accurate information on market participants ” (SEDAR, 2022).\nWe used SEDAR as the point of reference to collect oil and gas producing revenue from as many oil and gas companies from Canada that are reported and filled at SEDAR. These fillings go back to 1990, but most data only dates back to 1997 and this is where the discussion starts. Using the median value of revenue from all oil and gas companies from 1997, $2.09 billion (Canadian dollars). This amount is translated with inflation into today’s current dollars. This process was accomplished by using data from the Economic Research in the U.S. Federal Reserve Bank of St. Louis (FRED)\nThe following years were observed to look at elections from 1998 to 2021 from the website directly from the Parliament of Canada. This was to determine which parties were elected to the majority and the probability of those parties. The probabilities were found from various polling firms. From these polls, the data taken was only pertaining to the liberal and conservative parties. The other parties were left out as to they did provide a significant impact (Insert Evidence)\nEach year that falls in-between elections were tracked by the business cycle for Canada, whether the aggregate of each year individually was an expansion year or contraction year. Although the business cycle fluctuates more within a year, the aggregate for the whole year was used as this influences voting more so (Insert Evidence). This data was found from FRED."
+  },
+  {
+    "objectID": "PRI.html#data-processing",
+    "href": "PRI.html#data-processing",
+    "title": "PRI Canadian O&G",
+    "section": "3.2 Data processing",
+    "text": "3.2 Data processing\nThe data was pulled, and formatted in order to show an easy representation that can be read easily. The dollar amount of each was translated with the Consumer Price Index (CPI) calculator (from the Bank of Canada) to show each year’s revenue into the dollar amount of 2021. Meaning, given the graph below (Will Reformat tables and graphs to reference better) you can see that 1997’s revenue dollar amount is multiplied by 1.5740 to be the equivalent amount if that was earned in 2021.\n\n\nCode\nboxplot(Revenue ~ Year, data=data, ylim=c(100000, 160000000000))\n\n\n\n\n\nRevenue earned by all companies together per year. Each year is in today’s dollars (as of 2022).\n\n\n\n\nThe simulation started in the year 1998 where from the polling information it was determined that the liberal party had a 53% chance of winning over the conservative party at 47%. Every year following, whether calculating for the business cycle or for the next election, the probabilities were based on the given condition of the previous year. It follows as such that in 1999 there was no election, so the business cycle was calculated. This was seen has there being a 99% of expansion following a liberal win, there being a 67% chance of contraction following a conservative win. Probability for a contraction year is simply 1 minus the probability of growth. Similarly, the next election was in 2001 and it follows that the probability for a liberal win following an expansion is 75% while following a contraction is 67%. Again it follows that the probability of not winning is simply the 1 minus the probability of winning.\nWith calculations following election years, it is used that a expansion rate of 1.021 and a contraction rate of 1.016. These rates were calculated with the found aggregate for each year, compiled together, and then set for the average rate over the 22 year time span. The rates are used with random normal distribution to predict an amount of revenue that all companies median revenue amount would end in. For the expansion rate, there is a mean of 2.07 and a standard deviation of 0.64. For the contraction rate, there is a mean of 1.63 and a standard deviation of 1.27.\nThe amount for post year is used to determine an insurance amount. This amount is would be the coverage amount that should be sought after in order to protect profit. If the business cycle for the year is expansion, the predicted post amount is multiplied by .95, but if it is a contraction the predicted post amount is multiplied by .60. If there is an expansion following an election, a company should experience growth in revenue, therefore, there should not be a reason for insurance to be used if there is no loss experienced. As for a contraction, a loss in revenue not only could happen but is expected. With the economy of the country going through a downturn, a company for oil and gas would not be able to not experience the same. The hope would be to use an insurance policy to cover any and all loss. We use the value of 60% as a baseline to determine if there is a correlation, and enough to show that there is evidence to a reason for PRI. The reason why the insurance is not more than 60%, is for the insurance company (input more reason given reading articles as to why this is 60 and not closer to 80 or 85) also needs to mitigate loss. The remaining 40% from the predicted amount would be the amount given to an insurance company in premiums and a deductible to use the policy."
+  },
+  {
+    "objectID": "PRI.html#data-results",
+    "href": "PRI.html#data-results",
+    "title": "PRI Canadian O&G",
+    "section": "3.3 Data Results",
+    "text": "3.3 Data Results\nThe results from the simulation was interesting to say the least. Different outcomes came from different inputs, as expected, but when there were similar inputs, there were not so similar outputs. ^&. We also see when there are different inputs, there would be similar outputs. For example, the years 1999 and 2021, both followed elections that led to a Liberal win. Now 1999 was an expansion year while 2021 was a contraction. For both years the prediction model under performed greatly from the actual end of year amount was (2021 even more so). How can we explain the differences? This would a be a great question for another analysis, all we can say is that different time periods are less predictable than others.\nAmoung the well predicted"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "PRIOilandGas",
+    "section": "",
+    "text": "-Proficient in programs R, Python, and Microsoft Office Suite.\n-Fully capable of preforming independent research (see below [where I will fill in more of project])\n-Able to be trained with quick turn around to train others to same high level standard"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "PRIOilandGas",
+    "section": "",
+    "text": "-College courses for Mathematics were focused on statistics, regression, and applied programming\n-College courses for Economics were focused on econometrics, and macro.\n-Research developed while at the university was a combination of above."
+  }
+]

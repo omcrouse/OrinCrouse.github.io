@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Orin Crouse"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - PRI.qmd
+
+format:
+  html:
+    theme: cosmo
+    mainfont: arial
+    fontcolor: "#1e3d09"
+    linkcolor: "#26146e"
+    monofont: times new roman
+    css: styles.css
+    toc: true
+
+
+
