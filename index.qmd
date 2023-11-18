@@ -13,7 +13,7 @@ about:
     - text: Github
       icon: github
       href: https://github.com/omcrouse
-    - text: resume
+    - text: Resume
       icon: file-text
       href: Resume Orin Crouse.pdf
   id: ppc
