@@ -15,7 +15,7 @@ about:
       href: https://github.com/omcrouse
     - text: Resume
       icon: file-text
-      href: Resume Orin Crouse.pdf
+      href: Resume Orin Crouse.html
   id: ppc
 ---
 
