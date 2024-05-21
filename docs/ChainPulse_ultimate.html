@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Orin Crouse - Decentralization of Cryptocurrency Tokens on the Ethereum Blockchain</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Orin Crouse</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./PRI.html" rel="" target="">
+ <span class="menu-text">PRI Canadian O&amp;G</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#team-members" id="toc-team-members" class="nav-link active" data-scroll-target="#team-members">Team Members</a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#general-approach" id="toc-general-approach" class="nav-link" data-scroll-target="#general-approach">General Approach</a></li>
+  <li><a href="#about-the-data" id="toc-about-the-data" class="nav-link" data-scroll-target="#about-the-data">About the Data</a></li>
+  <li><a href="#formation-of-core-periphery-graphs" id="toc-formation-of-core-periphery-graphs" class="nav-link" data-scroll-target="#formation-of-core-periphery-graphs">Formation of Core-Periphery Graphs</a>
+  <ul class="collapse">
+  <li><a href="#construct-continuous-core-periphery-structure" id="toc-construct-continuous-core-periphery-structure" class="nav-link" data-scroll-target="#construct-continuous-core-periphery-structure">Construct continuous core-periphery structure</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#citiations" id="toc-citiations" class="nav-link" data-scroll-target="#citiations">Citiations</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Decentralization of Cryptocurrency Tokens on the Ethereum Blockchain</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><a href="https://colab.research.google.com/github/omcrouse/research/blob/main/ChainPulse_ultimate.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<section id="team-members" class="level2">
+<h2 class="anchored" data-anchor-id="team-members">Team Members</h2>
+<ol type="1">
+<li><p>Alex Schaef &gt;Mathematical Analyst. Took the lead in understanding previous projects and linking various variables to the concept of decentralized finance. Also acted as lead notetaker for meetings both within the group and with sponsors from Chainpulse, and has written a majority of the text blocks in this notebook, including “Introduction,” “About the Data,” “Conclusion,” and some graph breakdowns.</p></li>
+<li><p>Nathaniel Hamilton Thompson &gt; Project Manager. Oversaw management, led in creating the visualization of data, including breaking the data into time segments, and did research to find numerous outside resources to aid in the group’s understanding of the project.</p></li>
+<li><p>Orin Crouse &gt; Python Coder. Took the lead in all coding-related aspects of the project. Using the code provided by a previous project, Orin converted it to run successfully with new data to expand on the findings of the previous project and ensured that it continued to run despite new errors that have come with updates to various packages. &gt; Put in the following sections &gt;&gt; “General Approach”, “Code Starts”, “Scatter plot by Months”, “Sorting, Defining Core-Periphery Structure”, “Form Graph”, “Network Dynamics”. Repeated for Dydx Token. Then added “Citiations”.</p></li>
+</ol>
+</section>
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Cryptocurrency exchanges heavily emphasize being a “decentralized finance,” in that all transactions of cryptocurrencies are made between two individuals without requiring a central intermediary. However, recent studies have expressed doubt about the decentralized nature of cryptocurrency. In this paper, we study the Euler crypto token (in addition to a previous study done over the AAVE token) to conclude that, although there are some centralized components within the network of transactions, trends across multiple tokens still indicate a decentralized nature to the network.</p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Cryptocurrency prides itself on being a truly decentralized finance, meaning transactions can happen between any two individuals, or more, without the need of a central intermediary. In our lives, the best example of an intermediary is a bank. With the U.S. dollar, transactions are normally approved by a bank, meaning most exchanges of money go through a central point; the majority of transactions are between a person and a bank. Cryptocurrency is different in that transactions are made entirely between individuals, with no central intermediary. These transactions are recorded on a blockchain, which is essentially a virtual ledger. Our project is inspired by a previous paper written by Ziqiao Ao, Gergely Horvath, and Luyao Zhang, titled <em>Are Decentralized Finance Really Decentralized? A Social Network Analysis of the AAVE Protocol on the Ethereum Blockchain</em> The paper studies the AAVE token, and attempts to argue that cryptocurrency is not fully decentralized as it claims to be. In this project, we will expand on the studies done in this original paper, with the following goals:</p>
+<blockquote class="blockquote">
+<ol type="a">
+<li>Confirm or deny the results of the original paper.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="a">
+<li>Use data from multiple crypto tokens to expand on the results of the original paper.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="a">
+<li>Examine trends between tokens to see if the decentralization of transactions is comparable across different currencies.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="a">
+<li>Examine trends across time to see if different tokens follow a similar trend over the lifetime of the token.</li>
+</ol>
+</blockquote>
+<section id="general-approach" class="level2">
+<h2 class="anchored" data-anchor-id="general-approach">General Approach</h2>
+<p>This notebook take the approach of taking the networks for the Euler token and reframing the data into simpler, more readable outputs to better explain the idea of the centralization for the tokens. A quote to describe the idea used is <br><br> “core-periphery structure in its simplest form refers to a partition of a network into two groups of nodes called core and periphery, where core nodes are densely interconnected (i.e., adjacent), and peripheral nodes are adjacent to the core nodes but not to other peripheral nodes”.[2]<br><br></p>
+<p>If a token is to be described as being a central network we would see our graphs consist of core nodes, while a decentralized network would consist of periphery nodes.</p>
+<p>Core-periphery pairs are defined to have the properties of:<br> <span class="math display">\[A^* = A_{ij}^* = (x_i+x_j - x_ix_j)δ(c_i,c_j) \]</span> We see <span class="math inline">\(x_i=1\)</span> for core nodes and <span class="math inline">\(x_i=0\)</span> for peripheral nodes. The index of the core-periphery pair to which node <span class="math inline">\(i\)</span> belongs to is represented by <span class="math inline">\(c_i(1 ≤ c_i ≤ C)\)</span>. The following properties are treated like axioms here.<br> 1.) Every code node is adjacent to every other code node.<br> 2.) Every core node is adjacent to all corresponding peripheral nodes.<br> 3.) Every peripheral node is not adjacent to any other peripheral node.<br> 4.) Lastly, there are no edges between different idealised core-periphery pairs. [3, 4] <br> When computing you want <span class="math inline">\(c_i, x_i ∈ (1 ≤ i ≤ N)\)</span> to be maximized comparetively between <span class="math inline">\(A\)</span> and <span class="math inline">\(A^*\)</span>. This is shown by:<br></p>
+<p><span class="math display">\[Q_{config}^{cp} = \frac{1}{2M} \sum_{i=1}^N \sum_{j=1}^N A_{ij}A_{ij}^* - Ε [\frac{1}{2M} \sum_{i=1}^N \sum_{j=1}^{conf}(1-A_{ij}^*)]\]</span> <br></p>
+<p>Using a configuration model where the epected number of edges between nodes <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> can be represented by <span class="math inline">\(Ε[A_{ij}^{conf}]=\frac{d_id_j}{2M}\)</span>.<br><br></p>
+<p>In the section titled “Construct Continuous Core-Periphery Structures”, various graphs are fromed, each with different algorithms.</p>
+</section>
+<section id="about-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-data">About the Data</h2>
+<p>Our data sets consist of five variables. &gt;There are three “addresses” that consist of a string of numbers and letters that are used to assign a unique moniker to each crypto token and to each account that trades cryptocurrency. They are all <em>categorical</em> data, as they are a name/identifier. The actual numbers and letters are not important, as they are only used to differentiate between different tokens and between different traders.</p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p><strong>Token_address</strong> is always the same within each data set because there is only one token per data set (in this project, we are using two data sets covering the Euler and dYdX tokens).</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p><strong>From_address</strong> indicates which account is selling the tokens.</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p><strong>To_address</strong> indicates which account is buying the tokens.</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Block_timestamp</strong> tells us the time and day of the transaction.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Value</strong> shows the number of tokens traded in the transaction (<em>numerical</em>).</p>
+</blockquote>
+<p>Other variables we caluclate include:</p>
+<blockquote class="blockquote">
+<p><strong>Giant Component size ratio</strong>: “Giant componenet” is defined as the node with the most edges, or the address with the largest number of transactions for that time period. The ratio is calculated as <strong><em>(# edges on giant component) / (total # of edges)</em></strong><br>
+Range: (0,1]</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Modularity</strong>: Under this calculation, nodes are separated into communities to examine if separate communities exist. The modularity score is the fraction of the edges that fall within the given groups minus the expected fraction if edges were distributed at random. The existance of multiple communities indicate a decentralized network, as transactions are not linked to a single central point.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Standard Deviation of Degree Centrality</strong>: “Degree Centrality” is equal to the number of edges on a node. This variable is simply the standard deviation of all nodes’ degree centralities in a given time frame.</p>
+</blockquote>
+<div class="cell" data-cellview="form" data-outputid="d0eae34a-f463-43e9-acaf-9fed3e453c91" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Background Code and Libraries Used</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#%%capture</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install matplotlib<span class="op">==</span><span class="fl">3.5.1</span> <span class="op">&amp;&gt;</span> <span class="op">/</span>dev<span class="op">/</span>null</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>upgrade scipy networkx <span class="op">&amp;&gt;</span> <span class="op">/</span>dev<span class="op">/</span>null</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install cpnet <span class="op">&amp;&gt;</span> <span class="op">/</span>dev<span class="op">/</span>null</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cpnet</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> community.community_louvain <span class="im">as</span> community</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The libraries used are: matplotlib (verison 3.5.1), scipy, networkx, cpnet, numpy, pandas, os, time, zipfile, tqdm,"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"community.community_louvain, random, requests, json, and datetime."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The libraries used are: matplotlib (verison 3.5.1), scipy, networkx, cpnet, numpy, pandas, os, time, zipfile, tqdm,
+community.community_louvain, random, requests, json, and datetime.</code></pre>
+</div>
+</div>
+<p>#<strong>Euler Token</strong></p>
+<div class="cell" data-cellview="form" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Upload Data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/nghthompson/Math_Clinic_Project/main/Euler%20Crypto%20Data.csv'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>edf <span class="op">=</span> pd.read_csv(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>##Network Visualization</p>
+<div class="cell" data-cellview="form" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Refinement of Data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Number Wallet IDs for simplification</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>unique_addresses <span class="op">=</span> <span class="bu">set</span>(edf[<span class="st">'from_address'</span>].unique()) <span class="op">|</span> <span class="bu">set</span>(edf[<span class="st">'to_address'</span>].unique())</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mapping <span class="op">=</span> {address: n <span class="cf">for</span> n, address <span class="kw">in</span> <span class="bu">enumerate</span>(unique_addresses)}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>edf[[<span class="st">'from_ID'</span>, <span class="st">'to_ID'</span>]] <span class="op">=</span> edf[[<span class="st">'from_address'</span>, <span class="st">'to_address'</span>]].replace(mapping)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># edit timestamp to sort by days</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>edf.rename(columns<span class="op">=</span>{<span class="st">'f0_'</span>:<span class="st">'value'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>edf <span class="op">=</span> edf.dropna()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>edf[<span class="st">'value'</span>] <span class="op">=</span> edf[<span class="st">'value'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">float</span>(x))</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>edf[<span class="st">'timestamp'</span>] <span class="op">=</span> pd.to_datetime(edf[<span class="st">'block_timestamp'</span>])</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>edf[<span class="st">'timestamp'</span>] <span class="op">=</span> edf[<span class="st">'timestamp'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">str</span>(x)[:<span class="dv">10</span>])</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>edf[<span class="st">'timestamp'</span>] <span class="op">=</span> pd.to_datetime(edf[<span class="st">'timestamp'</span>])</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># breakdown dataframe into weeks and months</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>all_time <span class="op">=</span> edf</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>june <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-06-01'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-06-30'</span>)]</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>july <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-07-01'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-07-31'</span>)]</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>august <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-08-01'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-08-31'</span>)]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>week1 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-06-19'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-06-25'</span>)]</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>week2 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-06-26'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-07-02'</span>)]</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>week3 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-07-03'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-07-09'</span>)]</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>week4 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-07-10'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-07-16'</span>)]</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>week5 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-07-17'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-07-23'</span>)]</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>week6 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-07-24'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-07-30'</span>)]</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>week7 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-07-31'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-08-06'</span>)]</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>week8 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-08-07'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-08-13'</span>)]</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>week9 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-08-14'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-08-20'</span>)]</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>week10 <span class="op">=</span> edf[(edf.timestamp <span class="op">&gt;=</span> <span class="st">'2022-08-21'</span>) <span class="op">&amp;</span> (edf.timestamp <span class="op">&lt;=</span> <span class="st">'2022-08-27'</span>)]</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>all_time_g <span class="op">=</span> nx.from_pandas_edgelist(edf, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>june_g <span class="op">=</span> nx.from_pandas_edgelist(june, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>july_g <span class="op">=</span> nx.from_pandas_edgelist(july, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>august_g <span class="op">=</span> nx.from_pandas_edgelist(august, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>week1_g <span class="op">=</span> nx.from_pandas_edgelist(week1, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>week2_g <span class="op">=</span> nx.from_pandas_edgelist(week2, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>week3_g <span class="op">=</span> nx.from_pandas_edgelist(week3, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>week4_g <span class="op">=</span> nx.from_pandas_edgelist(week4, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>week5_g <span class="op">=</span> nx.from_pandas_edgelist(week5, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>week6_g <span class="op">=</span> nx.from_pandas_edgelist(week6, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>week7_g <span class="op">=</span> nx.from_pandas_edgelist(week7, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>week8_g <span class="op">=</span> nx.from_pandas_edgelist(week8, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>week9_g <span class="op">=</span> nx.from_pandas_edgelist(week9, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>week10_g <span class="op">=</span> nx.from_pandas_edgelist(week10, source<span class="op">=</span><span class="st">'from_ID'</span>, target<span class="op">=</span><span class="st">'to_ID'</span>, edge_attr<span class="op">=</span><span class="st">'value'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="305c41cd-65f5-4c39-c32d-2d7c21075fef" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Network of All Transactions (June - August)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>all_comm <span class="op">=</span> nx.community.label_propagation_communities(all_time_g)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>community_index <span class="op">=</span> {n: i <span class="cf">for</span> i, com <span class="kw">in</span> <span class="bu">enumerate</span>(all_comm) <span class="cf">for</span> n <span class="kw">in</span> com}</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">17</span>, <span class="dv">17</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Network Graph'</span>.<span class="bu">format</span>(<span class="bu">len</span>(all_time.index)))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>all_color <span class="op">=</span> [community_index[n] <span class="cf">for</span> n <span class="kw">in</span> all_time_g]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(all_time.index), <span class="st">'Number Transactions for the entire data set'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>nx.draw(all_time_g, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">13</span>, node_color<span class="op">=</span>all_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>11372 Number Transactions for the entire data set</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="a4355d02-5163-43d5-d58f-cb702735ed28" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Network of Each Month Broke Out</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>june_comm <span class="op">=</span> nx.community.label_propagation_communities(june_g)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>community_index <span class="op">=</span> {n: i <span class="cf">for</span> i, com <span class="kw">in</span> <span class="bu">enumerate</span>(june_comm) <span class="cf">for</span> n <span class="kw">in</span> com}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">17</span>, <span class="dv">17</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'</span><span class="sc">{:}</span><span class="st"> Euler Transactions (June 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(june.index)))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>june_color <span class="op">=</span> [community_index[n] <span class="cf">for</span> n <span class="kw">in</span> june_g]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(june.index), <span class="st">'Number Transactions for June'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>nx.draw(june_g, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">5</span>, node_color<span class="op">=</span>june_color)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># network of July transactions</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>july_comm <span class="op">=</span> nx.community.label_propagation_communities(july_g)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>community_index <span class="op">=</span> {n: i <span class="cf">for</span> i, com <span class="kw">in</span> <span class="bu">enumerate</span>(july_comm) <span class="cf">for</span> n <span class="kw">in</span> com}</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">17</span>, <span class="dv">17</span>))</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Euler Transactions (July 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(july.index)))</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>july_color <span class="op">=</span> [community_index[n] <span class="cf">for</span> n <span class="kw">in</span> july_g]</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(july.index), <span class="st">'Number Transactions for July'</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>nx.draw(july_g, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">5</span>, node_color<span class="op">=</span>july_color)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># network of August transactions</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>august_comm <span class="op">=</span> nx.community.label_propagation_communities(august_g)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>community_index <span class="op">=</span> {n: i <span class="cf">for</span> i, com <span class="kw">in</span> <span class="bu">enumerate</span>(august_comm) <span class="cf">for</span> n <span class="kw">in</span> com}</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">17</span>, <span class="dv">17</span>))</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Euler Transactions (August 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(august.index)))</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>august_color <span class="op">=</span> [community_index[n] <span class="cf">for</span> n <span class="kw">in</span> august_g]</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(august.index), <span class="st">'Number Transactions for August'</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>nx.draw(august_g, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">5</span>, node_color<span class="op">=</span>august_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5485 Number Transactions for June
+3396 Number Transactions for July
+2490 Number Transactions for August</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-6-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-6-output-4.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="c38594a5-02f5-420c-86a9-909f6f854f59" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Scatter Plot of June. Day by Day</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(june[<span class="st">'timestamp'</span>], june[<span class="st">'to_ID'</span>])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Buyer Transactions (June 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(june.index)))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(june[<span class="st">'from_ID'</span>], june[<span class="st">'to_ID'</span>])</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Seller Transactions (June 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(june.index)))</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="f552b9f2-e260-4e24-96fb-d52afa76f195" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Scatter Plot of July. Day by Day</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(july[<span class="st">'timestamp'</span>], july[<span class="st">'to_ID'</span>])</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Buyer Transactions (July 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(july.index)))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(july[<span class="st">'from_ID'</span>], july[<span class="st">'to_ID'</span>])</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Seller Transactions (July 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(july.index)))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="a955de0f-26a8-4b32-bb1c-5e2e29cc3a21" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Scatter Plot of August. Day by Day</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(august[<span class="st">'timestamp'</span>], august[<span class="st">'to_ID'</span>])</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Buyer Transactions (August 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(august.index)))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(august[<span class="st">'from_ID'</span>], august[<span class="st">'to_ID'</span>])</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Seller Transactions (August 2022)'</span>.<span class="bu">format</span>(<span class="bu">len</span>(august.index)))</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="formation-of-core-periphery-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="formation-of-core-periphery-graphs">Formation of Core-Periphery Graphs</h2>
+<div class="cell" data-cellview="form" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Sorting and Defining Core-Periphery Structure</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>edf.sort_values(<span class="st">'block_timestamp'</span>, ascending <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data cleaning</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>edf <span class="op">=</span> edf[edf[<span class="st">'timestamp'</span>]<span class="op">&gt;=</span><span class="st">'2021-12-30'</span>]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>edf <span class="op">=</span> edf[edf[<span class="st">'timestamp'</span>]<span class="op">&lt;=</span><span class="st">'2022-08-24'</span>]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>edf.to_csv(<span class="st">'Euler Raw Transfer Data.csv'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>edf <span class="op">=</span> edf.drop(columns <span class="op">=</span> [<span class="st">'token_address'</span>,<span class="st">'block_timestamp'</span>])</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">## add values between the 2 same addresses together</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>edf[[<span class="st">'from_address'</span>, <span class="st">'to_address'</span>]] <span class="op">=</span> np.sort(edf[[<span class="st">'from_address'</span>, <span class="st">'to_address'</span>]], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>edf<span class="op">=</span> edf.groupby([<span class="st">'timestamp'</span>,<span class="st">'from_address'</span>,<span class="st">'to_address'</span>]).agg(<span class="kw">lambda</span> x: <span class="bu">sum</span>(x)).reset_index()</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>edf.to_csv(<span class="st">'Euler transaction data_after preprocessing.csv'</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>edf <span class="op">=</span> pd.read_csv(<span class="st">'Euler transaction data_after preprocessing.csv'</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">##Network Analysis</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>edf_time_partition<span class="op">=</span> edf.groupby([<span class="st">'timestamp'</span>])[<span class="st">'to_address'</span>].agg([<span class="st">'nunique'</span>]).reset_index()</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>edf_time_partition <span class="op">=</span> edf_time_partition.drop([<span class="st">'nunique'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">##Number of daily edges</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>num_nodes <span class="op">=</span> []</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>num_edges <span class="op">=</span> []</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># MultiDi Network Building (weighted-directed graph)</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of Number of nodes, number of edges</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    nodes <span class="op">=</span> G.number_of_nodes()</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> G.number_of_edges()</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    num_nodes.append(nodes)</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    num_edges.append(edges)</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>    Network_Features<span class="op">=</span>{<span class="st">"num_nodes"</span> : num_nodes,<span class="st">"num_edges"</span> : num_edges}</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>Network_Features<span class="op">=</span>pd.DataFrame(Network_Features)</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'time'</span>] <span class="op">=</span>  edf_time_partition[<span class="st">'timestamp'</span>]</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="co">### Degree Setting</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>Degreemean <span class="op">=</span> []</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>Degreestd <span class="op">=</span> []</span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    <span class="co">#edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]</span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># MultiDi Network Building (weighted-directed graph)</span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of Degree_centrality, mean_value</span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>    degrees <span class="op">=</span> G.degree()</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>    degree <span class="op">=</span> <span class="bu">list</span>(<span class="bu">dict</span>(G.degree()).values())</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>    edf_deg <span class="op">=</span> {<span class="st">"Degree"</span> : degree}</span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>    edf_deg <span class="op">=</span> pd.DataFrame(edf_deg)</span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>    DC_mean <span class="op">=</span> edf_deg[<span class="st">'Degree'</span>].mean()</span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>    DC_std <span class="op">=</span> edf_deg[<span class="st">'Degree'</span>].std()</span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>    Degreemean.append(DC_mean)</span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>    Degreestd.append(DC_std)</span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'Degree mean'</span>]  <span class="op">=</span> Degreemean</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'Degree std'</span>]  <span class="op">=</span> Degreestd</span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="co">##Extract Top 10 by ratio</span></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>top10Degreemean <span class="op">=</span> []</span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>top10Degreestd <span class="op">=</span> []</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>    sender_mdegree<span class="op">=</span> edf_1.groupby([<span class="st">'from_address'</span>])[<span class="st">'to_address'</span>].count().reset_index()</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>    receiver_mdegree <span class="op">=</span> edf_1.groupby([<span class="st">'to_address'</span>])[<span class="st">'from_address'</span>].count().reset_index()</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>    sender_mdegree <span class="op">=</span> sender_mdegree.rename(columns<span class="op">=</span>{<span class="st">'to_address'</span>:<span class="st">'degree'</span>})</span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>    sender_mdegree <span class="op">=</span> sender_mdegree.rename(columns<span class="op">=</span>{<span class="st">'from_address'</span>:<span class="st">'address'</span>})</span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>    receiver_mdegree <span class="op">=</span> receiver_mdegree.rename(columns <span class="op">=</span> {<span class="st">'from_address'</span>:<span class="st">'degree'</span>})</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>    receiver_mdegree <span class="op">=</span> receiver_mdegree.rename(columns <span class="op">=</span> {<span class="st">'to_address'</span>:<span class="st">'address'</span>})</span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>    merge <span class="op">=</span> pd.merge(sender_mdegree,receiver_mdegree,on<span class="op">=</span><span class="st">"address"</span>,how <span class="op">=</span> <span class="st">"outer"</span>)</span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>    merge <span class="op">=</span> merge.fillna(<span class="bu">int</span>(<span class="dv">0</span>))</span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>    merge[<span class="st">'degree'</span>] <span class="op">=</span> merge[<span class="st">'degree_x'</span>]<span class="op">+</span>merge[<span class="st">'degree_y'</span>]</span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>    merge.sort_values(by<span class="op">=</span>[<span class="st">'degree'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>    merge <span class="op">=</span> merge.reset_index()</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>    top5degree <span class="op">=</span> merge[<span class="st">'address'</span>][<span class="dv">0</span>:<span class="dv">10</span>].tolist()</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>    sen_top <span class="op">=</span>  edf_1[edf_1[<span class="st">'from_address'</span>].isin(top5degree)]</span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>    rec_top<span class="op">=</span> edf_1[edf_1[<span class="st">'to_address'</span>].isin(top5degree)]</span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a>    topaddress <span class="op">=</span> pd.concat([sen_top,rec_top]).drop_duplicates()</span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(topaddress, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of absolute degree</span></span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>    degree <span class="op">=</span> []</span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">0</span>,<span class="dv">2</span>): <span class="co">## MUST CHANGE BACK TO (0,10) LATER. FIND OUT WHY top5degree IS ONLY THREE VARIABLES</span></span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>        degrees <span class="op">=</span> G.degree(top5degree[j])</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>        degree.append(degrees)</span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>    edf_deg <span class="op">=</span> {<span class="st">"Degree"</span> : degree}</span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>    edf_deg <span class="op">=</span> pd.DataFrame(edf_deg)</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>    deg_mean <span class="op">=</span> edf_deg[<span class="st">'Degree'</span>].mean()</span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>    deg_std <span class="op">=</span> edf_deg[<span class="st">'Degree'</span>].std()</span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>    top10Degreemean.append(deg_mean)</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>    top10Degreestd.append(deg_std)</span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'Top10Degree mean'</span>]  <span class="op">=</span> top10Degreemean</span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'Top10Degree std'</span>]  <span class="op">=</span> top10Degreestd</span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'Top10 Degree mean ratio'</span>]  <span class="op">=</span> Network_Features[<span class="st">'Top10Degree mean'</span>]<span class="op">/</span>Network_Features[<span class="st">'Degree mean'</span>]</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="co">#The above code cells don't show much being there aren't 10 degrees found, but rather only two.</span></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="co">#That means there are only two core nodes that reach the criteria to be considered core.</span></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a><span class="co">#Already we see the Euler token to be more decentralized rather than central.</span></span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="co">### Degree centrality</span></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>DCmean <span class="op">=</span> []</span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>DCstd <span class="op">=</span> []</span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>    <span class="co">#edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a>    <span class="co"># MultiDi Network Building (weighted-directed graph)</span></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of Degree_centrality, mean_value</span></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a>    deg_cen <span class="op">=</span> nx.degree_centrality(G)</span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>    edf_deg <span class="op">=</span> pd.DataFrame.from_dict(deg_cen, orient<span class="op">=</span><span class="st">'index'</span>, columns<span class="op">=</span>[<span class="st">'Degree_Centrality'</span>])</span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>    DC_mean <span class="op">=</span> edf_deg[<span class="st">'Degree_Centrality'</span>].mean()</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>    DC_std <span class="op">=</span> edf_deg[<span class="st">'Degree_Centrality'</span>].std()</span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>    DCmean.append(DC_mean)</span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>    DCstd.append(DC_std)</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="co">#The above code cell redefines the core nodes found to double check and ensure the understanding of core is reached for the entire network.</span></span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a><span class="co">### Coefficient Clusters</span></span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>clustermean <span class="op">=</span> []</span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>clusterstd <span class="op">=</span> []</span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>    <span class="co">#edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]</span></span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Unweighted-Directed Network Building (weighted-directed graph)</span></span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of Clustering_Coefficient, mean_value, std</span></span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>    clustering <span class="op">=</span> nx.clustering(G)</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>    df_cluster <span class="op">=</span> pd.DataFrame.from_dict(clustering, orient<span class="op">=</span><span class="st">'index'</span>, columns<span class="op">=</span>[<span class="st">'Clustering_Coefficient'</span>])</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>    cluster_mean <span class="op">=</span> df_cluster[<span class="st">'Clustering_Coefficient'</span>].mean()</span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>    cluster_std <span class="op">=</span> df_cluster[<span class="st">'Clustering_Coefficient'</span>].std()</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>    clustermean.append(cluster_mean)</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>    clusterstd.append(cluster_std)</span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="co">#The above code cell is form the cluster by coefficient. This is for both core and periphery</span></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a><span class="co">### Build Modularity</span></span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>mod_list <span class="op">=</span> []</span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>    <span class="co">#edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]</span></span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>    <span class="co"># unweighted-undirected Network Building (weighted-directed graph)</span></span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of modularity</span></span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a>    part <span class="op">=</span> community.best_partition(G)</span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>    mod <span class="op">=</span> community.modularity(part,G)</span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>    mod_list.append(mod)</span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>    <span class="co">### Build Transitivity</span></span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>    tran_list <span class="op">=</span> []</span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>    <span class="co">#edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]</span></span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Unweighted-undirected Network Building (weighted-directed graph)</span></span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of transitivity,</span></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>    tran <span class="op">=</span> nx.transitivity(G)</span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>    tran_list.append(tran)</span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="co">### Centrality by Eigenvector</span></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>eigmean <span class="op">=</span> []</span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a>eigstd <span class="op">=</span> []</span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a>    <span class="co">#edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]</span></span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a>    <span class="co"># MultiDi Network Building (weighted-directed graph)</span></span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of Closeness_centrality, mean_value</span></span>
+<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a>    eig_cen <span class="op">=</span> nx.eigenvector_centrality(G, max_iter<span class="op">=</span><span class="dv">20000</span>)</span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>    edf_eig <span class="op">=</span> pd.DataFrame.from_dict(eig_cen, orient<span class="op">=</span><span class="st">'index'</span>, columns<span class="op">=</span>[<span class="st">'eigenvector_centrality'</span>])</span>
+<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a>    eig_mean <span class="op">=</span> edf_eig[<span class="st">'eigenvector_centrality'</span>].mean()</span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a>    eig_std <span class="op">=</span> edf_eig[<span class="st">'eigenvector_centrality'</span>].std()</span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a>    eigmean.append(eig_mean)</span>
+<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a>    eigstd.append(eig_std)</span>
+<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a><span class="co">### Closeness Centrality</span></span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a>CCmean <span class="op">=</span> []</span>
+<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a>CCstd <span class="op">=</span> []</span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data Partition</span></span>
+<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a>    <span class="co"># MultiDi Network Building (weighted-directed graph)</span></span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of Closeness_centrality, mean_value</span></span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a>    close_cen <span class="op">=</span> nx.closeness_centrality(G)</span>
+<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a>    edf_close <span class="op">=</span> pd.DataFrame.from_dict(close_cen, orient<span class="op">=</span><span class="st">'index'</span>, columns<span class="op">=</span>[<span class="st">'Closeness_Centrality'</span>])</span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a>    CC_mean <span class="op">=</span> edf_close[<span class="st">'Closeness_Centrality'</span>].mean()</span>
+<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a>    CC_std <span class="op">=</span> edf_close[<span class="st">'Closeness_Centrality'</span>].std()</span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a>    CCmean.append(CC_mean)</span>
+<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a>    CCstd.append(CC_std)</span>
+<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a><span class="co">### Number of components</span></span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>components_cnt <span class="op">=</span> []</span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a>    com_cnt <span class="op">=</span> nx.number_connected_components(G)</span>
+<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a>    components_cnt.append(com_cnt)</span>
+<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a><span class="co">### Gaint component by size and number of nodes</span></span>
+<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a>giant_com_ratio <span class="op">=</span> []</span>
+<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a><span class="co"># G = nx.Graph()</span></span>
+<span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a>    Gcc <span class="op">=</span> <span class="bu">sorted</span>(nx.connected_components(G), key<span class="op">=</span><span class="bu">len</span>, reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a>    G0 <span class="op">=</span> G.subgraph(Gcc[<span class="dv">0</span>])</span>
+<span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a><span class="co">#com_cnt = nx.number_connected_components(G)</span></span>
+<span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a><span class="co">#components_cnt.append(com_cnt)</span></span>
+<span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a>    nodes <span class="op">=</span> G0.number_of_nodes()</span>
+<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a>    nodes_whole <span class="op">=</span> G.number_of_nodes()</span>
+<span id="cb12-265"><a href="#cb12-265" aria-hidden="true" tabindex="-1"></a>    ratio <span class="op">=</span> nodes<span class="op">/</span>nodes_whole</span>
+<span id="cb12-266"><a href="#cb12-266" aria-hidden="true" tabindex="-1"></a>    giant_com_ratio.append(ratio)</span>
+<span id="cb12-267"><a href="#cb12-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-268"><a href="#cb12-268" aria-hidden="true" tabindex="-1"></a><span class="co">### Save features output</span></span>
+<span id="cb12-269"><a href="#cb12-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-270"><a href="#cb12-270" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'DCmean'</span>]<span class="op">=</span>DCmean</span>
+<span id="cb12-271"><a href="#cb12-271" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'DCstd'</span>]<span class="op">=</span>DCstd</span>
+<span id="cb12-272"><a href="#cb12-272" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'clustermean'</span>]<span class="op">=</span>clustermean</span>
+<span id="cb12-273"><a href="#cb12-273" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'clusterstd'</span>]<span class="op">=</span>clusterstd</span>
+<span id="cb12-274"><a href="#cb12-274" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'modularity'</span>]<span class="op">=</span>mod_list</span>
+<span id="cb12-275"><a href="#cb12-275" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'transitivity'</span>]<span class="op">=</span>tran_list</span>
+<span id="cb12-276"><a href="#cb12-276" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'eig_mean'</span>]<span class="op">=</span>eigmean</span>
+<span id="cb12-277"><a href="#cb12-277" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'eig_std'</span>]<span class="op">=</span>eigstd</span>
+<span id="cb12-278"><a href="#cb12-278" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'closenessmean'</span>]<span class="op">=</span>CCmean</span>
+<span id="cb12-279"><a href="#cb12-279" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'closenessstd'</span>]<span class="op">=</span>CCstd</span>
+<span id="cb12-280"><a href="#cb12-280" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'Components_cnt'</span>]<span class="op">=</span>components_cnt</span>
+<span id="cb12-281"><a href="#cb12-281" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'giant_com_ratio'</span>]<span class="op">=</span>giant_com_ratio</span>
+<span id="cb12-282"><a href="#cb12-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-283"><a href="#cb12-283" aria-hidden="true" tabindex="-1"></a>Network_Features[<span class="st">'token'</span>] <span class="op">=</span>  <span class="st">'Euler'</span></span>
+<span id="cb12-284"><a href="#cb12-284" aria-hidden="true" tabindex="-1"></a><span class="co">#Network_Features</span></span>
+<span id="cb12-285"><a href="#cb12-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-286"><a href="#cb12-286" aria-hidden="true" tabindex="-1"></a>Network_Features.to_csv(<span class="st">'Euler_Network_Features.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="construct-continuous-core-periphery-structure" class="level3">
+<h3 class="anchored" data-anchor-id="construct-continuous-core-periphery-structure">Construct continuous core-periphery structure</h3>
+<div class="cell" data-cellview="form" data-outputid="ca640868-b6a1-49c6-b27f-7f4710ce1d5b" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Borgatti-Everett Algorithm</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][<span class="dv">63</span>]]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>alg <span class="op">=</span> cpnet.BE()</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>alg.detect(G)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> alg.get_coreness()  <span class="co"># Get the coreness of nodes</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">##coreness = pd.DataFrame.from_dict(x, orient='index', columns=['Coreness'])</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">##corenessmean = coreness['Coreness'].mean()</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessmean</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#sig_c, sig_x, significant, p_values = cpnet.qstest(</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">#    c, x, G, alg, significance_level=0.05, num_of_rand_net=100, num_of_thread=16)</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">#print(significant)</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">#print(p_values)</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spiral_layout(G,scale <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>ax, pos <span class="op">=</span> cpnet.draw(G, c, x, ax, pos <span class="op">=</span> pos)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>edf_2 <span class="op">=</span> edf_1[[<span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>]]</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co">#edf_2.tail()</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> edf_2.dtypes</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co">#print(result)</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>seller <span class="op">=</span> edf_2.from_address.unique()</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>buyer <span class="op">=</span> edf_2.to_address.unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="aba710e6-b6ba-4ed8-8761-851f60383274" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Kojaku-Masuda Algrithm basic</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>kmconfig <span class="op">=</span> cpnet.KM_config()</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>kmconfig.detect(G)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> kmconfig.get_pair_id()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> kmconfig.get_coreness()</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>ax, _ <span class="op">=</span> cpnet.draw(G, c, x, ax, pos<span class="op">=</span>pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="44b04185-c8fb-4fa0-8d6c-0d83a1e33140" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Kojaku-Masuda Algorithm Search for Short Comings</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][<span class="dv">63</span>]] <span class="co">#64 was 90. Change later</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of mean&amp;std of coreness (continuous structure)</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>alg <span class="op">=</span> cpnet.KM_ER()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>alg.detect(G)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> alg.get_coreness()  <span class="co"># Get the coreness of nodes</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#coreness = pd.DataFrame.from_dict(x, orient='index', columns=['Coreness'])</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessmean = coreness['Coreness'].mean()</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessstd = coreness['Coreness'].std()</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('mean', corenessmean)</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('std', corenessstd)</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>sig_c, sig_x, significant, p_values <span class="op">=</span> cpnet.qstest(</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    c, x, G, alg, significance_level<span class="op">=</span><span class="fl">0.05</span>, num_of_rand_net<span class="op">=</span><span class="dv">100</span>, num_of_thread<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spiral_layout(G,scale <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>draw_nodes_kwd <span class="op">=</span> {<span class="st">"node_size"</span>: <span class="dv">80</span>, <span class="st">"linewidths"</span>: <span class="fl">0.8</span>}</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>ax, pos <span class="op">=</span> cpnet.utils.draw(G, sig_c, sig_x, ax, draw_nodes_kwd<span class="op">=</span>draw_nodes_kwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/usr/local/lib/python3.10/dist-packages/cpnet/qstest.py:94: UserWarning: 'num_of_thread keyword' is duplicated due to a compatibility issue with numba. Only one CPU will be used.
+  warnings.warn("'num_of_thread keyword' is duplicated due to a compatibility issue with numba. Only one CPU will be used.")
+100%|██████████| 100/100 [00:00&lt;00:00, 191.44it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="47fdf5a9-9827-408a-e5a2-c36e5eec30cd" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Kojaku-Masuda Algorithm with lower significance level</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sig_c, sig_x, significant, p_values <span class="op">=</span> cpnet.qstest(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    c, x, G, kmconfig, significance_level<span class="op">=</span><span class="fl">0.01</span>, num_of_thread<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ax, pos <span class="op">=</span> cpnet.draw(G, sig_c, sig_x, ax, pos<span class="op">=</span>pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/usr/local/lib/python3.10/dist-packages/cpnet/qstest.py:94: UserWarning: 'num_of_thread keyword' is duplicated due to a compatibility issue with numba. Only one CPU will be used.
+  warnings.warn("'num_of_thread keyword' is duplicated due to a compatibility issue with numba. Only one CPU will be used.")
+100%|██████████| 100/100 [00:00&lt;00:00, 164.93it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="a2f20f0a-0765-43ba-c564-7117a913978c" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Minres Algorithm</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][<span class="dv">63</span>]] <span class="co">#64 was 90. Change later</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of mean&amp;std of coreness (continuous structure)</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>alg <span class="op">=</span> cpnet.MINRES()</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>alg.detect(G)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> alg.get_coreness()  <span class="co"># Get the coreness of nodes</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#coreness = pd.DataFrame.from_dict(x, orient='index', columns=['Coreness'])</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessmean = coreness['Coreness'].mean()</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessstd = coreness['Coreness'].std()</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('mean', corenessmean)</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('std', corenessstd)</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>sig_c, sig_x, significant, p_values <span class="op">=</span> cpnet.qstest(</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    c, x, G, alg, significance_level<span class="op">=</span><span class="fl">0.05</span>, num_of_rand_net<span class="op">=</span><span class="dv">100</span>) <span class="co">#, num_of_thread=20</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co">#print(significant)</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co">#print(p_values)</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co">#print(sig_c)</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co">#print(sig_x)</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> alg.get_coreness()  <span class="co"># Get the coreness of nodes</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> alg.get_pair_id()  <span class="co"># Get the group membership of nodes</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spiral_layout(G,scale <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>draw_nodes_kwd <span class="op">=</span> {<span class="st">"node_size"</span>: <span class="dv">80</span>, <span class="st">"linewidths"</span>: <span class="fl">0.8</span>}</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>ax, pos <span class="op">=</span> cpnet.utils.draw(G, sig_c, sig_x, ax, draw_nodes_kwd<span class="op">=</span>draw_nodes_kwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 100/100 [00:02&lt;00:00, 41.14it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="bbff3df2-9d41-4df5-d74c-6fe80adc638a" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Surprise Algorithm</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][<span class="dv">63</span>]] <span class="co">#64 was 90. Change later</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of mean&amp;std of coreness (continuous structure)</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>alg <span class="op">=</span> cpnet.Surprise()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>alg.detect(G)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> alg.get_coreness()  <span class="co"># Get the coreness of nodes</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co">#coreness = pd.DataFrame.from_dict(x, orient='index', columns=['Coreness'])</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessmean = coreness['Coreness'].mean()</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessstd = coreness['Coreness'].std()</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('mean', corenessmean)</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('std', corenessstd)</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>sig_c, sig_x, significant, p_values <span class="op">=</span> cpnet.qstest(</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    c, x, G, alg, significance_level<span class="op">=</span><span class="fl">0.05</span>, num_of_rand_net<span class="op">=</span><span class="dv">100</span>) <span class="co">#, num_of_thread=20</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spiral_layout(G,scale <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>draw_nodes_kwd <span class="op">=</span> {<span class="st">"node_size"</span>: <span class="dv">80</span>, <span class="st">"linewidths"</span>: <span class="fl">0.8</span>}</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>ax, pos <span class="op">=</span> cpnet.utils.draw(G, sig_c, sig_x, ax, draw_nodes_kwd<span class="op">=</span>draw_nodes_kwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 100/100 [00:00&lt;00:00, 105.10it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="9d7c8a1e-6b2b-4822-ee98-9244c05291cf" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Rossa Algorithm</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][<span class="dv">63</span>]] <span class="co">#64 was 90. Change later</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculation of mean&amp;std of coreness (continuous structure)</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>alg <span class="op">=</span> cpnet.Rossa()</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>alg.detect(G)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> alg.get_coreness()  <span class="co"># Get the coreness of nodes</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">#coreness = pd.DataFrame.from_dict(x, orient='index', columns=['Coreness'])</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessmean = coreness['Coreness'].mean()</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co">#corenessstd = coreness['Coreness'].std()</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('mean', corenessmean)</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print ('std', corenessstd)</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>sig_c, sig_x, significant, p_values <span class="op">=</span> cpnet.qstest(</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    c, x, G, alg, significance_level<span class="op">=</span><span class="fl">0.05</span>, num_of_rand_net<span class="op">=</span><span class="dv">100</span>)  <span class="co">#, num_of_thread=20</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spiral_layout(G,scale <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>draw_nodes_kwd <span class="op">=</span> {<span class="st">"node_size"</span>: <span class="dv">80</span>, <span class="st">"linewidths"</span>: <span class="fl">0.8</span>}</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>ax, pos <span class="op">=</span> cpnet.utils.draw(G, sig_c, sig_x, ax, draw_nodes_kwd<span class="op">=</span>draw_nodes_kwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 100/100 [00:00&lt;00:00, 124.33it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>These algorithms are meant to show with proof that we can describe core-periphery structure networks. More cores discorved would leads us to believe there is more a centeraliztion finance for a crypto currency token. More periphery nodes with less cores would lead us to believe the token is more decenteralized.</p>
+<p>##Creation of Tablature for Centralization</p>
+<div class="cell" data-cellview="form" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Conform Core Addresses by Date Counts</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>core_address <span class="op">=</span> []</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    alg <span class="op">=</span> cpnet.BE()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    alg.detect(G)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> alg.get_coreness()</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    coredf <span class="op">=</span> pd.DataFrame.from_dict(x, orient<span class="op">=</span><span class="st">'index'</span>,columns<span class="op">=</span>[<span class="st">'coreness'</span>])</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    core <span class="op">=</span> coredf[coredf[<span class="st">'coreness'</span>]<span class="op">==</span><span class="dv">1</span>].index.tolist()</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    core_address.extend(core)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    a<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(a)</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>cores <span class="op">=</span> pd.DataFrame(core_address)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>core_cnt <span class="op">=</span> cores[<span class="dv">0</span>].value_counts(ascending<span class="op">=</span><span class="va">False</span>).reset_index()</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co">#core_cnt</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>core_cnt.to_csv(<span class="st">'core_date_cnt.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="f6c79203-993d-41f3-d009-c5c93f8f250f" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Number of Core Members Each Day</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>core_cnt <span class="op">=</span> []</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][i]]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    alg <span class="op">=</span> cpnet.BE()</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    alg.detect(G)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> alg.get_coreness()</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    coredf <span class="op">=</span> pd.DataFrame.from_dict(x, orient<span class="op">=</span><span class="st">'index'</span>,columns<span class="op">=</span>[<span class="st">'coreness'</span>])</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    core <span class="op">=</span> coredf[coredf[<span class="st">'coreness'</span>]<span class="op">==</span><span class="dv">1</span>].index.tolist()</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    cnt <span class="op">=</span> <span class="bu">len</span>(core)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    core_cnt.append(cnt)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Minimum for a day is :"</span>,np.<span class="bu">min</span>(core_cnt))</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Maximum for a day is :"</span>,np.<span class="bu">max</span>(core_cnt))</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total for all days is :"</span>,np.<span class="bu">sum</span>(core_cnt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Minimum for a day is : 0
+Maximum for a day is : 12
+Total for all days is : 183</code></pre>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="65247a73-9386-4a81-fedc-f338c84c87d4" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Average Number of Neighbors of Cores</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>avg_core_neighbor <span class="op">=</span> []</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(edf_time_partition)):</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    edf_1 <span class="op">=</span> edf.loc[edf[<span class="st">'timestamp'</span>]<span class="op">==</span>edf_time_partition[<span class="st">'timestamp'</span>][<span class="dv">0</span>]]</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.from_pandas_edgelist(edf_1, <span class="st">'from_address'</span>, <span class="st">'to_address'</span>, <span class="st">'value'</span>, nx.Graph())</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    alg <span class="op">=</span> cpnet.BE()</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    alg.detect(G)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> alg.get_pair_id()</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> alg.get_coreness()</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>coredf <span class="op">=</span> pd.DataFrame.from_dict(x, orient<span class="op">=</span><span class="st">'index'</span>,columns<span class="op">=</span>[<span class="st">'coreness'</span>])</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>core <span class="op">=</span> coredf[coredf[<span class="st">'coreness'</span>]<span class="op">==</span><span class="dv">1</span>].index.tolist()</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>neighbor_cnt <span class="op">=</span> []</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">0</span>,<span class="bu">len</span>(core)):</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    neighbor <span class="op">=</span> G.degree(core[i])</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    neighbor_cnt.append(neighbor)</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>neighbor_cnt_mean <span class="op">=</span> mean(neighbor_cnt)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>avg_core_neighbor.append(neighbor_cnt_mean)</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Average Neighbors to Cores"</span>, np.<span class="bu">sum</span>(neighbor_cnt_mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Average Neighbors to Cores 1.0</code></pre>
+</div>
+</div>
+<div class="cell" data-cellview="form" data-outputid="c0da51d5-60d4-4d1a-a1bd-7ec9cd43c2f2" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Network Dynamics</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>edf_2 <span class="op">=</span> pd.read_csv(<span class="st">'Euler_Network_Features.csv'</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>fig,axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>,<span class="dv">2</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'default'</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.style.use('seaborn-pastel')</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> edf_2[[<span class="st">'Components_cnt'</span>]].plot(ax <span class="op">=</span> axes[<span class="dv">0</span>,<span class="dv">0</span>], figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">10</span>), grid<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span><span class="st">'Number of components'</span>,xlabel<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>edf_2[[<span class="st">'giant_com_ratio'</span>]].plot(ax <span class="op">=</span> axes[<span class="dv">0</span>,<span class="dv">1</span>], figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">7</span>), grid<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span><span class="st">'Giant component size ratio'</span>,xlabel<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>edf_2[[<span class="st">'modularity'</span>]].plot(ax <span class="op">=</span> axes[<span class="dv">1</span>,<span class="dv">0</span>], figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">7</span>), grid<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span><span class="st">'Modularity'</span>,xlabel<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#edf_2[['relative_degree']].plot(ax = axes[1,0], figsize=(13,10), grid=False, title='Relative degree',xlabel=' ')</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>edf_2[[<span class="st">'DCstd'</span>]].plot(ax <span class="op">=</span> axes[<span class="dv">1</span>,<span class="dv">1</span>], figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">7</span>), grid<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span><span class="st">'Std of Degree Centrality'</span>,xlabel<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#edf_2[['cp_test_pvalue']].plot(ax = axes[2,0], figsize=(13,11), grid=False, title='p-value of cp test',xlabel=' ')</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">#edf_2[['core_cnt']].plot(ax = axes[2,1], figsize=(13,11), grid=False, title='number of cores',xlabel=' ')</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>edf_2[[<span class="st">'Top10 Degree mean ratio'</span>]].plot(ax <span class="op">=</span> axes[<span class="dv">2</span>,<span class="dv">0</span>], figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">10</span>), grid<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span><span class="st">'Top10 nodes avg degree / general avg degree'</span>,xlabel<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co">#edf_2[['giant_com_ratio']].plot(ax = axes[2,1], figsize=(13,10), grid=False, title='Giant component size ratio',xlabel=' ')</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(wspace <span class="op">=</span><span class="fl">0.15</span>, hspace <span class="op">=</span><span class="fl">0.35</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ChainPulse_ultimate_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="breakdown" class="level4">
+<h4 class="anchored" data-anchor-id="breakdown">Breakdown</h4>
+<p><strong>Number of Components</strong>: We expect a <em>smaller</em> number of componenets to indicate a more <em>centralized</em> network. The number of components is fairly random with an exception toward the beginning of the recorded data.</p>
+<p><strong>Giant Component Size Ratio</strong>: A <em>larger</em> giant component size ratio indicates a more <em>centralized</em> network. In our data, the giant component ratio starts high (suggesting more centralization early on), then becomes random, similar to the number of components.</p>
+<p><strong>Modulatiry</strong>: A <em>smaller</em> modularity score suggests a more <em>centralized</em> network. Modularity for the Ether token starts low, but quickly rises, and stays fairly stable past day 15. This indicates a more centralized network in early days that becomes decentralized and stays decentralized after a couple of weeks. However, while the modularity for Euler settles around 0.6, the modularity for the AAVE token (found in the original paper) settles around 0.8 before dropping down to 0.7, a possible indication that AAVE is more decentralized than Euler.</p>
+<p><strong>Standard Deviation of Degree Centrality</strong>: A <em>higher</em> standard deviation suggests a more <em>centralized</em> network. Standard deviation for Euler starts high but quickly falls by day five, where is stays steady. Like the modularity scores, this suggests a more centralized network early on that quickly becomes and stays decentralized.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>While the prior study on the AAVE token suggested that there was a high level of centralization, our study with the Euler token does <strong>not</strong> indicate a centralized finance network. However, the tokens have similar trends in decentralization over time. Both tokens begin incredibly centralized, which should not be surprising since most tokens start from one central source. Over a few weeks, all tokens see an increase in the level of decentralization before eventually settling at a point that is certainly decentralized by definition, although both tokens’ networks maintain centralized aspects. This is most visible in the network graphs, where one account has edges linked to a noticeably large number of other accounts. However, the graphs change over time to reflect trends we see in other variables studied (number of components, giant component size ratio, standard deviation of degree centrality, modularity), in that all tokens’ trading networks are centralized when the tokens are created, but become decentralized a short time after trading begins.</p>
+<p>Personal takeaways from this project include getting a wider understanding of cryptocurrency trading and decentralized finance, utilizing graph theory to visualize trade networks, using data to study changes over time, and applying mathematical concepts to real world data.</p>
+<p>We hope our reults help our sponsor (Chainpulse) better understand the transaction networks they study on the Ethereum blockchain so that they can better develop their own research and analytics of cryptocurrency trading.</p>
+</section>
+<section id="citiations" class="level1">
+<h1>Citiations</h1>
+<p>Ao, Ziqiao, Gergely Horvath, and Luyao Zhang. “Are decentralized finance really decentralized? A social network analysis of the Aave protocol on the Ethereum blockchain.” arXiv preprint arXiv:2206.08401 (2022). [1] <br> Kojaku, Sadamori, and Naoki Masuda. “Core-periphery structure requires something else in the network.” New Journal of physics 20.4 (2018): 043012. [2]</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
