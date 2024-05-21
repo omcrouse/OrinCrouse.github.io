@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "My Name is Orin Crouse",
     "section": "",
-    "text": "Hopefully this helps me get a highly paid position in a very fun career field.\n\n\n-Proficient in programs R, Python, and Microsoft Office Suite.\n-Fully capable of preforming independent research.\n-Able to be trained with quick turn around to train others to same high level of standard.\n\n\n\n-College courses for Mathematics were focused on statistics, regression, and applied programming.\n-College courses for Economics were focused on econometrics, and macroeconomics.\n-Research developed while at the university was a combination of above."
+    "text": "Hopefully this helps me get a highly paid position in a very fun career field."
   },
   {
     "objectID": "about.html",
@@ -39,7 +39,7 @@
     "href": "PRI.html",
     "title": "PRI Canadian O&G",
     "section": "",
-    "text": "Political Risk Insurance for Canadian Oil and Gas Companies\nThis paper explores the concept of Political Risk Insurance (PRI) for Canadian Oil and Gas companies. The examination is to determine whether these companies should seek out PRI with results that hope to show the benefits or consequences. Having the conditions of the country’s influence from the business cycle, rare world changing events, and federal elections. Simulations that have changes in probabilities and random distributions to cover possible outcomes and repeat a thousand times. The results show that the rare usage of PRI is simply a lack of knowledge. Another finding is that from a policy point of view, companies see an ebb and flow with revenue. So, why spend money in attempt to sway the outcome of elections if it is shown to futile."
+    "text": "Political Risk Insurance  for  Canadian Oil and Gas Companies\nThis paper explores the concept of Political Risk Insurance (PRI) for Canadian Oil and Gas companies. The examination is to determine whether these companies should seek out PRI with results that hope to show the benefits or consequences. Having the conditions of the country’s influence from the business cycle, rare world changing events, and federal elections. Simulations that have changes in probabilities and random distributions to cover possible outcomes and repeat a thousand times. The results show that the rare usage of PRI is simply a lack of knowledge. Another finding is that from a policy point of view, companies see an ebb and flow with revenue. So, why spend money in attempt to sway the outcome of elections if it is shown to futile."
   },
   {
     "objectID": "PRI.html#introduction",
@@ -87,15 +87,15 @@
     "objectID": "index.html#skills",
     "href": "index.html#skills",
     "title": "My Name is Orin Crouse",
-    "section": "",
-    "text": "-Proficient in programs R, Python, and Microsoft Office Suite.\n-Fully capable of preforming independent research.\n-Able to be trained with quick turn around to train others to same high level of standard."
+    "section": "Skills",
+    "text": "Skills\n-Proficient in programs R, Python, and Microsoft Office Suite.\n-Fully capable of preforming independent research.\n-Able to be trained with quick turn around to train others to same high level of standard."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "My Name is Orin Crouse",
-    "section": "",
-    "text": "-College courses for Mathematics were focused on statistics, regression, and applied programming.\n-College courses for Economics were focused on econometrics, and macroeconomics.\n-Research developed while at the university was a combination of above."
+    "section": "Education",
+    "text": "Education\n-College courses for Mathematics were focused on statistics, regression, and applied programming.\n-College courses for Economics were focused on econometrics, and macroeconomics.\n-Research developed while at the university was a combination of above."
   },
   {
     "objectID": "ChainPulse_ultimate.html#team-members",

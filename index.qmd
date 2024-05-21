@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: "My Name is Orin Crouse"
 image: headshot1.png
@@ -20,7 +19,6 @@ about:
   id: ppc
 ---
 
-:::{ppc}
 
 Hopefully this helps me get a highly paid position in a very fun career field.
 

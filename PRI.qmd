@@ -772,7 +772,11 @@ r21df <- data.frame(r21realall, r21insurance, r21post, r21covered)
 
 <h1 style="text-align: center;">
 
-Political Risk Insurance for Canadian Oil and Gas Companies
+Political Risk Insurance
+<br>
+for
+<br>
+Canadian Oil and Gas Companies
 
 </h1>
 
