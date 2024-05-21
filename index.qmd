@@ -1,5 +1,5 @@
 ---
-title: "PRIOilandGas"
+title: "My Name is Orin Crouse"
 image: headshot1.png
 resources: Orin Crouse Resume.pdf
 about:
