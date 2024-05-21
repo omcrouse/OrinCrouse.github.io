@@ -16,7 +16,6 @@ about:
     - text: Resume
       icon: file-text
       href: OrinCrouseResume.pdf
-  id: ppc
 ---
 
 
