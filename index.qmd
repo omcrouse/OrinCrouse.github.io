@@ -21,22 +21,20 @@ about:
 
 :::{ppc}
 
-I will upload my project from Data2Policy here.
-
 Hopefully this helps me get a highly paid position in a very fun career field.
 
 ## Skills
  
 -Proficient in programs R, Python, and Microsoft Office Suite.
 
--Fully capable of preforming independent research (see below [where I will fill in more of project])
+-Fully capable of preforming independent research.
 
--Able to be trained with quick turn around to train others to same high level standard
+-Able to be trained with quick turn around to train others to same high level of standard.
 
 ## Education
--College courses for Mathematics were focused on statistics, regression, and applied programming
+-College courses for Mathematics were focused on statistics, regression, and applied programming.
 
--College courses for Economics were focused on econometrics, and macro.
+-College courses for Economics were focused on econometrics, and macroeconomics.
 
 -Research developed while at the university was a combination of above.
 
