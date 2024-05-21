@@ -1006,57 +1006,39 @@ insurance21q3=ifelse(growthcycle21=='expansion',0.60*post_amt21q3,0.90*post_amt2
 covered21q3 <- insurance21q3/real2021q3
 results21q3[i,]=c('2021',pre_amt21q3,election20, growthcycle21,post_amt21q3,real2021q3, insurance21q3, covered21q3)
 }
-```
-```{r}
+
 r99q1 <- as.data.frame(results99q1)
 r99q2 <- as.data.frame(results99q2)
 r99q3 <- as.data.frame(results99q3)
-```
 
-```{r}
 r02q1 <- as.data.frame(results02q1)
 r02q2 <- as.data.frame(results02q2)
 r02q3 <- as.data.frame(results02q3)
-```
 
-```{r}
 r06q1 <- as.data.frame(results06q1)
 r06q2 <- as.data.frame(results06q2)
 r06q3 <- as.data.frame(results06q3)
-```
 
-```{r}
 r08q1 <- as.data.frame(results08q1)
 r08q2 <- as.data.frame(results08q2)
 r08q3 <- as.data.frame(results08q3)
-```
 
-```{r}
 r10q1 <- as.data.frame(results10q1)
 r10q2 <- as.data.frame(results10q2)
 r10q3 <- as.data.frame(results10q3)
-```
 
-```{r}
 r13q1 <- as.data.frame(results13q1)
 r13q2 <- as.data.frame(results13q2)
 r13q3 <- as.data.frame(results13q3)
-```
 
-
-```{r}
 r17q1 <- as.data.frame(results17q1)
 r17q2 <- as.data.frame(results17q2)
 r17q3 <- as.data.frame(results17q3)
-```
 
-```{r}
 r21q1 <- as.data.frame(results21q1)
 r21q2 <- as.data.frame(results21q2)
 r21q3 <- as.data.frame(results21q3)
-```
 
-```{r}
 r99q1$Post_Amtq1 <- as.numeric(as.character(r99q1$Post_Amtq1))
 r99q2$Post_Amtq2 <- as.numeric(as.character(r99q2$Post_Amtq2))
 r99q3$Post_Amtq3 <- as.numeric(as.character(r99q3$Post_Amtq3))
@@ -1070,9 +1052,7 @@ r99realall <- data.frame(r99q1$Real_Amtq1, r99q2$Real_Amtq2, r99q3$Real_Amtq3)
 r99insurance <- data.frame(r99q1$Insuranceq1, r99q2$Insuranceq2, r99q3$Insuranceq3)
 r99post <- data.frame(r99q1$Post_Amtq1, r99q2$Post_Amtq2, r99q3$Post_Amtq3)
 r99df <- data.frame(r99realall, r99insurance, r99post)
-```
 
-```{r}
 r02q1$Post_Amtq1 <- as.numeric(as.character(r02q1$Post_Amtq1))
 r02q2$Post_Amtq2 <- as.numeric(as.character(r02q2$Post_Amtq2))
 r02q3$Post_Amtq3 <- as.numeric(as.character(r02q3$Post_Amtq3))
@@ -1086,9 +1066,7 @@ r02realall <- data.frame(r02q1$Real_Amtq1, r02q2$Real_Amtq2, r02q3$Real_Amtq3)
 r02insurance <- data.frame(r02q1$Insuranceq1, r02q2$Insuranceq2, r02q3$Insuranceq3)
 r02post <- data.frame(r02q1$Post_Amtq1, r02q2$Post_Amtq2, r02q3$Post_Amtq3)
 r02df <- data.frame(r02realall, r02insurance, r02post)
-```
 
-```{r}
 r06q1$Post_Amtq1 <- as.numeric(as.character(r06q1$Post_Amtq1))
 r06q2$Post_Amtq2 <- as.numeric(as.character(r06q2$Post_Amtq2))
 r06q3$Post_Amtq3 <- as.numeric(as.character(r06q3$Post_Amtq3))
@@ -1102,9 +1080,7 @@ r06realall <- data.frame(r06q1$Real_Amtq1, r06q2$Real_Amtq2, r06q3$Real_Amtq3)
 r06insurance <- data.frame(r06q1$Insuranceq1, r06q2$Insuranceq2, r06q3$Insuranceq3)
 r06post <- data.frame(r06q1$Post_Amtq1, r06q2$Post_Amtq2, r06q3$Post_Amtq3)
 r06df <- data.frame(r06realall, r06insurance, r06post)
-```
 
-```{r}
 r08q1$Post_Amtq1 <- as.numeric(as.character(r08q1$Post_Amtq1))
 r08q2$Post_Amtq2 <- as.numeric(as.character(r08q2$Post_Amtq2))
 r08q3$Post_Amtq3 <- as.numeric(as.character(r08q3$Post_Amtq3))
@@ -1118,9 +1094,7 @@ r08realall <- data.frame(r08q1$Real_Amtq1, r08q2$Real_Amtq2, r08q3$Real_Amtq3)
 r08insurance <- data.frame(r08q1$Insuranceq1, r08q2$Insuranceq2, r08q3$Insuranceq3)
 r08post <- data.frame(r08q1$Post_Amtq1, r08q2$Post_Amtq2, r08q3$Post_Amtq3)
 r08df <- data.frame(r08realall, r08insurance, r08post)
-```
 
-```{r}
 r10q1$Post_Amtq1 <- as.numeric(as.character(r10q1$Post_Amtq1))
 r10q2$Post_Amtq2 <- as.numeric(as.character(r10q2$Post_Amtq2))
 r10q3$Post_Amtq3 <- as.numeric(as.character(r10q3$Post_Amtq3))
@@ -1134,9 +1108,7 @@ r10realall <- data.frame(r10q1$Real_Amtq1, r10q2$Real_Amtq2, r10q3$Real_Amtq3)
 r10insurance <- data.frame(r10q1$Insuranceq1, r10q2$Insuranceq2, r10q3$Insuranceq3)
 r10post <- data.frame(r10q1$Post_Amtq1, r10q2$Post_Amtq2, r10q3$Post_Amtq3)
 r10df <- data.frame(r10realall, r10insurance, r10post)
-```
 
-```{r}
 r13q1$Post_Amtq1 <- as.numeric(as.character(r13q1$Post_Amtq1))
 r13q2$Post_Amtq2 <- as.numeric(as.character(r13q2$Post_Amtq2))
 r13q3$Post_Amtq3 <- as.numeric(as.character(r13q3$Post_Amtq3))
@@ -1150,9 +1122,7 @@ r13realall <- data.frame(r13q1$Real_Amtq1, r13q2$Real_Amtq2, r13q3$Real_Amtq3)
 r13insurance <- data.frame(r13q1$Insuranceq1, r13q2$Insuranceq2, r13q3$Insuranceq3)
 r13post <- data.frame(r13q1$Post_Amtq1, r13q2$Post_Amtq2, r13q3$Post_Amtq3)
 r13df <- data.frame(r13realall, r13insurance, r13post)
-```
 
-```{r}
 r17q1$Post_Amtq1 <- as.numeric(as.character(r17q1$Post_Amtq1))
 r17q2$Post_Amtq2 <- as.numeric(as.character(r17q2$Post_Amtq2))
 r17q3$Post_Amtq3 <- as.numeric(as.character(r17q3$Post_Amtq3))
@@ -1166,9 +1136,7 @@ r17realall <- data.frame(r17q1$Real_Amtq1, r17q2$Real_Amtq2, r17q3$Real_Amtq3)
 r17insurance <- data.frame(r17q1$Insuranceq1, r17q2$Insuranceq2, r17q3$Insuranceq3)
 r17post <- data.frame(r17q1$Post_Amtq1, r17q2$Post_Amtq2, r17q3$Post_Amtq3)
 r17df <- data.frame(r17realall, r17insurance, r17post)
-```
 
-```{r}
 r21q1$Post_Amtq1 <- as.numeric(as.character(r21q1$Post_Amtq1))
 r21q2$Post_Amtq2 <- as.numeric(as.character(r21q2$Post_Amtq2))
 r21q3$Post_Amtq3 <- as.numeric(as.character(r21q3$Post_Amtq3))
