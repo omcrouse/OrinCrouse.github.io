@@ -1,7 +1,7 @@
 ---
-title: "PRIOilandGas"
+title: "My Name is Orin Crouse"
 image: headshot1.png
-resources: resume.pdf
+resources: Orin Crouse Resume.pdf
 about:
   template: solana
   image-shape: rounded
@@ -15,7 +15,7 @@ about:
       href: https://github.com/omcrouse
     - text: Resume
       icon: file-text
-      href: Resume Orin Crouse.pdf
+      href: Orin Crouse Resume.pdf
   id: ppc
 ---
 
