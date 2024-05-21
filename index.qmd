@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "My Name is Orin Crouse"
 image: headshot1.png
@@ -45,3 +46,54 @@ Hopefully this helps me get a highly paid position in a very fun career field.
 
 
 :::
+=======
+---
+title: "My Name is Orin Crouse"
+image: headshot1.png
+resources: Orin Crouse Resume.pdf
+about:
+  template: solana
+  image-shape: rounded
+  image-width: 10em
+  links: 
+    - text: Email
+      icon: envelope
+      href: mailto:orinmcrouse@gmail.com
+    - text: Github
+      icon: github
+      href: https://github.com/omcrouse
+    - text: Resume
+      icon: file-text
+      href: Orin Crouse Resume.pdf
+  id: ppc
+---
+
+:::{ppc}
+
+I will upload my project from Data2Policy here.
+
+Hopefully this helps me get a highly paid position in a very fun career field.
+
+## Skills
+ 
+-Proficient in programs R, Python, and Microsoft Office Suite.
+
+-Fully capable of preforming independent research (see below [where I will fill in more of project])
+
+-Able to be trained with quick turn around to train others to same high level standard
+
+## Education
+-College courses for Mathematics were focused on statistics, regression, and applied programming
+
+-College courses for Economics were focused on econometrics, and macro.
+
+-Research developed while at the university was a combination of above.
+
+
+
+
+
+
+
+:::
+>>>>>>> 628498812b576f4a9dee6e2ab154d20b5894580d
