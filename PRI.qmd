@@ -9,7 +9,7 @@ format:
 editor: visual
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include = FALSE}
 library(DiagrammeR)
 library(tibble)
 library(tidyr)
@@ -23,7 +23,7 @@ library(stringr)
 fellow <- read_csv("https://raw.githubusercontent.com/omcrouse/OrinCrouse/main/Fellow.csv")
 ```
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 y97 <- subset(fellow, select = Revenue, Year == "1997", drop = T)
 y98 <- subset(fellow, select = Revenue, Year == "1998", drop = T)
 y99 <- subset(fellow, select = Revenue, Year == "1999", drop = T)
@@ -73,18 +73,10 @@ ay18 <- mean(y18)
 ay19 <- mean(y19)
 ay20 <- mean(y20)
 ay21 <- mean(y21)
-boxplot(Revenue~Year, data=fellow, ylim=c(100000, 160000000000))
+#boxplot(Revenue~Year, data=fellow, ylim=c(100000, 160000000000))
 #par(mfrow=c(2,1))
 
-quantile(y98)
-quantile(y99)
-quantile(y02)
-quantile(y06)
-quantile(y08)
-quantile(y10)
-quantile(y13)
-quantile(y17)
-quantile(y21)
+
 y21q1 <- quantile(y21, .25)
 
 pre_amt99q1 <- quantile(y98, .25)
@@ -142,379 +134,10 @@ pre_amt21q3 <- quantile(y20, .75)
 real2021q1 <- quantile(y21, .25)
 real2021q2 <- quantile(y21, .50)
 real2021q3 <- quantile(y21, .75)
-
-#LOOP
-nIter=10000
-results99q1=matrix(nrow=nIter,ncol=8)
-colnames(results99q1)=c('Election','Pre_Amtq1','Winnerq1', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results99q2=matrix(nrow=nIter,ncol=8)
-colnames(results99q2)=c('Election','Pre_Amtq2','Winnerq2', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results99q3=matrix(nrow=nIter,ncol=8)
-colnames(results99q3)=c('Election','Pre_Amtq3','Winnerq3', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-results02q1=matrix(nrow=nIter,ncol=8)
-colnames(results02q1)=c('Election','Pre_Amtq1','Winner', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results02q2=matrix(nrow=nIter,ncol=8)
-colnames(results02q2)=c('Election','Pre_Amtq2','Winner', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results02q3=matrix(nrow=nIter,ncol=8)
-colnames(results02q3)=c('Election','Pre_Amtq3','Winner', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-results06q1=matrix(nrow=nIter,ncol=8)
-colnames(results06q1)=c('Election','Pre_Amtq1','Winner', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results06q2=matrix(nrow=nIter,ncol=8)
-colnames(results06q2)=c('Election','Pre_Amtq2','Winner', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results06q3=matrix(nrow=nIter,ncol=8)
-colnames(results06q3)=c('Election','Pre_Amtq3','Winner', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-results08q1=matrix(nrow=nIter,ncol=8)
-colnames(results08q1)=c('Election','Pre_Amtq1','Winner', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results08q2=matrix(nrow=nIter,ncol=8)
-colnames(results08q2)=c('Election','Pre_Amtq2','Winner', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results08q3=matrix(nrow=nIter,ncol=8)
-colnames(results08q3)=c('Election','Pre_Amtq3','Winner', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-results10q1=matrix(nrow=nIter,ncol=8)
-colnames(results10q1)=c('Election','Pre_Amtq1','Winner', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results10q2=matrix(nrow=nIter,ncol=8)
-colnames(results10q2)=c('Election','Pre_Amtq2','Winner', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results10q3=matrix(nrow=nIter,ncol=8)
-colnames(results10q3)=c('Election','Pre_Amtq3','Winner', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-results13q1=matrix(nrow=nIter,ncol=8)
-colnames(results13q1)=c('Election','Pre_Amtq1','Winner', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results13q2=matrix(nrow=nIter,ncol=8)
-colnames(results13q2)=c('Election','Pre_Amtq2','Winner', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results13q3=matrix(nrow=nIter,ncol=8)
-colnames(results13q3)=c('Election','Pre_Amtq3','Winner', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-results17q1=matrix(nrow=nIter,ncol=8)
-colnames(results17q1)=c('Election','Pre_Amtq1','Winner', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results17q2=matrix(nrow=nIter,ncol=8)
-colnames(results17q2)=c('Election','Pre_Amtq2','Winner', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results17q3=matrix(nrow=nIter,ncol=8)
-colnames(results17q3)=c('Election','Pre_Amtq3','Winner', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-results21q1=matrix(nrow=nIter,ncol=8)
-colnames(results21q1)=c('Election','Pre_Amtq1','Winner', 'Growth_Cycleq1', 'Post_Amtq1', 'Real_Amtq1', 'Insuranceq1', 'Coveredq1')
-results21q2=matrix(nrow=nIter,ncol=8)
-colnames(results21q2)=c('Election','Pre_Amtq2','Winner', 'Growth_Cycleq2', 'Post_Amtq2', 'Real_Amtq2', 'Insuranceq2', 'Coveredq2')
-results21q3=matrix(nrow=nIter,ncol=8)
-colnames(results21q3)=c('Election','Pre_Amtq3','Winner', 'Growth_Cycleq3', 'Post_Amtq3', 'Real_Amtq3', 'Insuranceq3', 'Coveredq3')
-
-for(i in 1:nIter){
-set.seed(i)
-intial_amt=2490842340  #<- Amount as of end of 1997
-####!!!!!!!!!!!!!!!!!!!!!!
-exp_rate=1.021
-cont_rate=1.016
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-# Election 1 1998 outcomes
-election98_outcomes=c('lib','cons')
-election98=sample(election98_outcomes,1,prob=c(.53,.47))
-
-#Growth Cycle 1999
-growthcycle99_outcomes=c('expansion','contraction')
-if(election98=='lib'){growthcycle99=sample(growthcycle99_outcomes,1,prob=c(.99, .01))}
-if(election98=='cons'){growthcycle99=sample(growthcycle99_outcomes,1,prob=c(.67, .33))}
-
-if(growthcycle99=='expansion'){post_amt99q1=pre_amt99q1*exp_rate_noise}
-if(growthcycle99=='contraction'){post_amt99q1=pre_amt99q1*cont_rate_noise}
-
-insurance99q1=ifelse(growthcycle99=='expansion',0.60*post_amt99q1,0.90*post_amt99q1)
-covered99q1 <- insurance99q1/real1999q1 #insurance as a percent of what the actual was and how much is helped.
-results99q1[i,]=c('1999q1', pre_amt99q1, election98, growthcycle99, post_amt99q1, real1999q1, insurance99q1, covered99q1)
-
-if(growthcycle99=='expansion'){post_amt99q2=pre_amt99q2*exp_rate_noise}
-if(growthcycle99=='contraction'){post_amt99q2=pre_amt99q2*cont_rate_noise}
-
-insurance99q2=ifelse(growthcycle99=='expansion',0.60*post_amt99q2,0.90*post_amt99q2)
-covered99q2 <- insurance99q2/real1999q2 #insurance as a percent of what the actual was and how much is helped.
-results99q2[i,]=c('1999q2', pre_amt99q2, election98, growthcycle99, post_amt99q2, real1999q2, insurance99q2, covered99q2)
-
-
-if(growthcycle99=='expansion'){post_amt99q3=pre_amt99q3*exp_rate_noise}
-if(growthcycle99=='contraction'){post_amt99q3=pre_amt99q3*cont_rate_noise}
-
-insurance99q3=ifelse(growthcycle99=='expansion',0.60*post_amt99q3,0.90*post_amt99q3)
-covered99q3 <- insurance99q3/real1999q3 #insurance as a percent of what the actual was and how much is helped.
-results99q3[i,]=c('1999q3', pre_amt99q3, election98, growthcycle99, post_amt99q3, real1999q3, insurance99q3, covered99q3)
-
-
-#Growth Cycle 2000
-growthcycle00_outcomes=c('expansion','contraction')
-if(growthcycle99=='expansion'){growthcycle00=sample(growthcycle00_outcomes,1,prob=c(.71,.29))}
-if(growthcycle99=='contraction'){growthcycle00=sample(growthcycle00_outcomes,1,prob=c(.99, .01))}
-
-# Election 2 2001
-election01_outcomes=c('lib','cons')
-if(growthcycle00=='expansion'){election01=sample(election01_outcomes,1,prob=c(.75, .25))}
-if(growthcycle00=='contraction'){election01=sample(election01_outcomes,1,prob=c(.67, .33))}
-
-
-#Growth Cycle 2002
-growthcycle02_outcomes=c('expansion','contraction')
-if(election01=='lib'){growthcycle02=sample(growthcycle02_outcomes,1,prob=c(.99, .01))}
-if(election01=='cons'){growthcycle02=sample(growthcycle02_outcomes,1,prob=c(.67, .33))}
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-if(growthcycle02=='expansion'){post_amt02q1=pre_amt02q1*exp_rate_noise}
-if(growthcycle02=='contraction'){post_amt02q1=pre_amt02q1*cont_rate_noise}
-
-insurance02q1=ifelse(growthcycle02=='expansion',0.60*post_amt02q1,0.90*post_amt02q1)
-covered02q1 <- insurance02q1/real2002q1 #insurance as a percent of what the actual was
-results02q1[i,]=c('2002q1',pre_amt02q1,election01, growthcycle02,post_amt02q1,real2002q1, insurance02q1, covered02q1)
-
-
-if(growthcycle02=='expansion'){post_amt02q2=pre_amt02q2*exp_rate_noise}
-if(growthcycle02=='contraction'){post_amt02q2=pre_amt02q2*cont_rate_noise}
-
-insurance02q2=ifelse(growthcycle02=='expansion',0.60*post_amt02q2,0.90*post_amt02q2)
-covered02q2 <- insurance02q2/real2002q2 #insurance as a percent of what the actual was
-results02q2[i,]=c('2002q2',pre_amt02q2,election01, growthcycle02,post_amt02q2,real2002q2, insurance02q2, covered02q2)
-
-if(growthcycle02=='expansion'){post_amt02q3=pre_amt02q3*exp_rate_noise}
-if(growthcycle02=='contraction'){post_amt02q3=pre_amt02q3*cont_rate_noise}
-
-insurance02q3=ifelse(growthcycle02=='expansion',0.60*post_amt02q3,0.90*post_amt02q3)
-covered02q3 <- insurance02q3/real2002q3 #insurance as a percent of what the actual was
-results02q3[i,]=c('2002q3',pre_amt02q3,election01, growthcycle02,post_amt02q3,real2002q3, insurance02q3, covered02q3)
-
-#Growth Cycle 2003
-growthcycle03_outcomes=c('expansion','contraction')
-if(growthcycle02=='expansion'){growthcycle03=sample(growthcycle03_outcomes,1,prob=c(.71, .29))}
-if(growthcycle02=='contraction'){growthcycle03=sample(growthcycle03_outcomes,1,prob=c(.99, .01))}
-
-#Growth Cycle 2004
-growthcycle04_outcomes=c('expansion','contraction')
-if(growthcycle03=='expansion'){growthcycle04=sample(growthcycle04_outcomes,1,prob=c(.71, .29))}
-if(growthcycle03=='contraction'){growthcycle04=sample(growthcycle04_outcomes,1,prob=c(.99, .01))}
-
-#Election 3 2005
-election05_outcomes=c('lib','cons')
-if(growthcycle04=='expansion'){election05=sample(election05_outcomes,1,prob=c(.75, .25))}
-if(growthcycle04=='contraction'){election05=sample(election05_outcomes,1,prob=c(.67, .33))}
-
-pre_amt06=20420510500  #<- ENTER REAL PRE 2006
-#Growth Cycle 2006
-growthcycle06_outcomes=c('expansion','contraction')
-if(election05=='lib'){growthcycle06=sample(growthcycle06_outcomes,1,prob=c(.99, .01))}
-if(election05=='cons'){growthcycle06=sample(growthcycle06_outcomes,1,prob=c(.67, .33))}
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-if(growthcycle06=='expansion'){post_amt06q1=pre_amt06q1*exp_rate_noise}
-if(growthcycle06=='contraction'){post_amt06q1=pre_amt06q1*cont_rate_noise}
-
-insurance06q1=ifelse(growthcycle06=='expansion',0.60*post_amt06q1,0.90*post_amt06q1)
-covered06q1 <- insurance06q1/real2006q1
-results06q1[i,]=c('2006q1',pre_amt06q1,election05, growthcycle06, post_amt06q1, real2006q1, insurance06q1, covered06q1)
-
-if(growthcycle06=='expansion'){post_amt06q2=pre_amt06q2*exp_rate_noise}
-if(growthcycle06=='contraction'){post_amt06q2=pre_amt06q2*cont_rate_noise}
-
-insurance06q2=ifelse(growthcycle06=='expansion',0.60*post_amt06q2,0.90*post_amt06q2)
-covered06q2 <- insurance06q2/real2006q2
-results06q2[i,]=c('2006q1',pre_amt06q2,election05, growthcycle06, post_amt06q2, real2006q2, insurance06q2, covered06q2)
-
-if(growthcycle06=='expansion'){post_amt06q3=pre_amt06q3*exp_rate_noise}
-if(growthcycle06=='contraction'){post_amt06q3=pre_amt06q3*cont_rate_noise}
-
-insurance06q3=ifelse(growthcycle06=='expansion',0.60*post_amt06q3,0.90*post_amt06q3)
-covered06q3 <- insurance06q2/real2006q2
-results06q3[i,]=c('2006q3',pre_amt06q3,election05, growthcycle06, post_amt06q3, real2006q3, insurance06q3, covered06q3)
-
-#Election 4 2007
-election07_outcomes=c('lib','cons')
-if(growthcycle06=='expansion'){election07=sample(election07_outcomes,1,prob=c(.75, .25))}
-if(growthcycle06=='contraction'){election07=sample(election07_outcomes,1,prob=c(.67, .33))}
-
-#Growth Cycle 2008
-growthcycle08_outcomes=c('expansion','contraction')
-if(election07=='lib'){growthcycle08=sample(growthcycle08_outcomes,1,prob=c(.99, .01))}
-if(election07=='cons'){growthcycle08=sample(growthcycle08_outcomes,1,prob=c(.67, .33))}
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-if(growthcycle08=='expansion'){post_amt08q1=pre_amt08q1*exp_rate_noise}
-if(growthcycle08=='contraction'){post_amt08q1=pre_amt08q1*cont_rate_noise}
-
-insurance08q1=ifelse(growthcycle08=='expansion',0.60*post_amt08q1,0.90*post_amt08q1)
-covered08q1 <- insurance08q1/real2008q1
-results08q1[i,]=c('2008q1',pre_amt08q1,election07, growthcycle08,post_amt08q1,real2008q1, insurance08q1, covered08q1)
-
-if(growthcycle08=='expansion'){post_amt08q2=pre_amt08q2*exp_rate_noise}
-if(growthcycle08=='contraction'){post_amt08q2=pre_amt08q2*cont_rate_noise}
-insurance08q2=ifelse(growthcycle08=='expansion',0.95*post_amt08q2,0.90*post_amt08q2)
-covered08q2 <- insurance08q2/real2008q2
-results08q2[i,]=c('2008q2',pre_amt08q2,election07, growthcycle08,post_amt08q2,real2008q2, insurance08q2, covered08q2)
-
-if(growthcycle08=='expansion'){post_amt08q3=pre_amt08q3*exp_rate_noise}
-if(growthcycle08=='contraction'){post_amt08q3=pre_amt08q3*cont_rate_noise}
-
-insurance08q3=ifelse(growthcycle08=='expansion',0.60*post_amt08q3,0.90*post_amt08q3)
-covered08q3 <- insurance08q3/real2008q3
-results08q3[i,]=c('2008q3',pre_amt08q3,election07, growthcycle08,post_amt08q3,real2008q3, insurance08q3, covered08q3)
-
-#Election 5 2009
-election09_outcomes=c('lib','cons')
-if(growthcycle08=='expansion'){election09=sample(election09_outcomes,1,prob=c(.75, .25))}
-if(growthcycle08=='contraction'){election09=sample(election09_outcomes,1,prob=c(.67, .33))}
-
-#Growth Cycle 2010
-growthcycle10_outcomes=c('expansion','contraction')
-if(election09=='lib'){growthcycle10=sample(growthcycle10_outcomes,1,prob=c(.99, .01))}
-if(election09=='cons'){growthcycle10=sample(growthcycle10_outcomes,1,prob=c(.67, .33))}
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-if(growthcycle10=='expansion'){post_amt10q1=pre_amt10q1*exp_rate_noise}
-if(growthcycle10=='contraction'){post_amt10q1=pre_amt10q1*cont_rate_noise}
-
-insurance10q1=ifelse(growthcycle10=='expansion',0.60*post_amt10q1,0.90*post_amt10q1)
-covered10q1 <- insurance10q1/real2010q1
-results10q1[i,]=c('2010q1',pre_amt10q1,election09, growthcycle10,post_amt10q1,real2010q1, insurance10q1, covered10q1)
-
-if(growthcycle10=='expansion'){post_amt10q2=pre_amt10q2*exp_rate_noise}
-if(growthcycle10=='contraction'){post_amt10q2=pre_amt10q2*cont_rate_noise}
-
-insurance10q2=ifelse(growthcycle10=='expansion',0.60*post_amt10q2,0.90*post_amt10q2)
-covered10q2 <- insurance10q2/real2010q2
-results10q2[i,]=c('2010q2',pre_amt10q2,election09, growthcycle10,post_amt10q2,real2010q2, insurance10q2, covered10q2)
-
-if(growthcycle10=='expansion'){post_amt10q3=pre_amt10q3*exp_rate_noise}
-if(growthcycle10=='contraction'){post_amt10q3=pre_amt10q3*cont_rate_noise}
-
-insurance10q3=ifelse(growthcycle10=='expansion',0.60*post_amt10q3,0.90*post_amt10q3)
-covered10q3 <- insurance10q3/real2010q3
-results10q3[i,]=c('2010q2',pre_amt10q3,election09, growthcycle10,post_amt10q3,real2010q3, insurance10q3, covered10q3)
-
-#Growth Cycle 2011
-growthcycle11_outcomes=c('expansion','contraction')
-if(growthcycle10=='expansion'){growthcycle11=sample(growthcycle11_outcomes,1,prob=c(.71, .29))}
-if(growthcycle10=='contraction'){growthcycle11=sample(growthcycle11_outcomes,1,prob=c(.99, .01))}
-
-#Election 6 2012
-election12_outcomes=c('lib','cons')
-if(growthcycle11=='expansion'){election12=sample(election12_outcomes,1,prob=c(.75, .25))}
-if(growthcycle11=='contraction'){election12=sample(election12_outcomes,1,prob=c(.67, .33))}
-
-pre_amt13=5209648000 #<- ENTER REAL PRE 2013
-#Growth Cycle 2013
-growthcycle13_outcomes=c('expansion','contraction')
-if(election12=='lib'){growthcycle13=sample(growthcycle13_outcomes,1,prob=c(.99, .01))}
-if(election12=='cons'){growthcycle13=sample(growthcycle13_outcomes,1,prob=c(.67, .33))}
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-if(growthcycle13=='expansion'){post_amt13q1=pre_amt13q1*exp_rate_noise}
-if(growthcycle13=='contraction'){post_amt13q1=pre_amt13q1*cont_rate_noise}
-
-insurance13q1=ifelse(growthcycle13=='expansion',0.60*post_amt13q1,0.90*post_amt13q1)
-covered13q1 <- insurance13q1/real2013q1
-results13q1[i,]=c('2013',pre_amt13q1,election12, growthcycle13,post_amt13q1,real2013q1, insurance13q1, covered13q1)
-
-if(growthcycle13=='expansion'){post_amt13q2=pre_amt13q2*exp_rate_noise}
-if(growthcycle13=='contraction'){post_amt13q2=pre_amt13q2*cont_rate_noise}
-
-insurance13q2=ifelse(growthcycle13=='expansion',0.60*post_amt13q2,0.90*post_amt13q2)
-covered13q2 <- insurance13q2/real2013q2
-results13q2[i,]=c('2013',pre_amt13q2,election12, growthcycle13,post_amt13q2,real2013q2, insurance13q2, covered13q2)
-
-if(growthcycle13=='expansion'){post_amt13q3=pre_amt13q3*exp_rate_noise}
-if(growthcycle13=='contraction'){post_amt13q3=pre_amt13q3*cont_rate_noise}
-
-insurance13q3=ifelse(growthcycle13=='expansion',0.60*post_amt13q3,0.90*post_amt13q3)
-covered13q3 <- insurance13q3/real2013q3
-results13q3[i,]=c('2013',pre_amt13q3,election12, growthcycle13,post_amt13q3,real2013q3, insurance13q3, covered13q3)
-
-#Growth Cycle 2014
-growthcycle14_outcomes=c('expansion','contraction')
-if(growthcycle13=='expansion'){growthcycle14=sample(growthcycle14_outcomes,1,prob=c(.71, .29))}
-if(growthcycle13=='contraction'){growthcycle14=sample(growthcycle14_outcomes,1,prob=c(.99, .01))}
-
-#Growth Cycle 2015
-growthcycle15_outcomes=c('expansion','contraction')
-if(growthcycle14=='expansion'){growthcycle15=sample(growthcycle15_outcomes,1,prob=c(.71, .29))}
-if(growthcycle14=='contraction'){growthcycle15=sample(growthcycle15_outcomes,1,prob=c(.99, .01))}
-
-#Election 7 2016
-election16_outcomes=c('lib','cons')
-if(growthcycle15=='expansion'){election16=sample(election16_outcomes,1,prob=c(.75,.25))}
-if(growthcycle15=='contraction'){election16=sample(election16_outcomes,1,prob=c(.67, .33))}
-
-pre_amt17=4172740000 #<- ENTER REAL PRE 2017
-#Growth Cycle 2017
-growthcycle17_outcomes=c('expansion','contraction')
-if(election16=='lib'){growthcycle17=sample(growthcycle17_outcomes,1,prob=c(.99, .01))}
-if(election16=='cons'){growthcycle17=sample(growthcycle17_outcomes,1,prob=c(.67, .33))}
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-if(growthcycle17=='expansion'){post_amt17q1=pre_amt17q1*exp_rate_noise}
-if(growthcycle17=='contraction'){post_amt17q1=pre_amt17q1*cont_rate_noise}
-
-insurance17q1=ifelse(growthcycle17=='expansion',0.60*post_amt17q1,0.90*post_amt17q1)
-covered17q1 <- insurance17q1/real2017q1
-results17q1[i,]=c('2017',pre_amt17q1,election16, growthcycle17, post_amt17q1, real2017q1, insurance17q1, covered17q1)
-
-if(growthcycle17=='expansion'){post_amt17q2=pre_amt17q2*exp_rate_noise}
-if(growthcycle17=='contraction'){post_amt17q2=pre_amt17q2*cont_rate_noise}
-
-insurance17q2=ifelse(growthcycle17=='expansion',0.60*post_amt17q2,0.90*post_amt17q2)
-covered17q2 <- insurance17q2/real2017q2
-results17q2[i,]=c('2017',pre_amt17q2,election16, growthcycle17, post_amt17q2, real2017q2, insurance17q2, covered17q2)
-
-if(growthcycle17=='expansion'){post_amt17q3=pre_amt17q3*exp_rate_noise}
-if(growthcycle17=='contraction'){post_amt17q3=pre_amt17q3*cont_rate_noise}
-
-insurance17q3=ifelse(growthcycle17=='expansion',0.60*post_amt17q3,0.90*post_amt17q3)
-covered17q3 <- insurance17q3/real2017q3
-results17q3[i,]=c('2017',pre_amt17q3,election16, growthcycle17, post_amt17q3, real2017q3, insurance17q3, covered17q3)
-
-#Growth Cycle 2018
-growthcycle18_outcomes=c('expansion','contraction')
-if(growthcycle17=='expansion'){growthcycle18=sample(growthcycle18_outcomes,1,prob=c(.71, .29))}
-if(growthcycle17=='contraction'){growthcycle18=sample(growthcycle18_outcomes,1,prob=c(.99, .01))}
-
-#Growth Cycle 2019
-growthcycle19_outcomes=c('expansion','contraction')
-if(growthcycle18=='expansion'){growthcycle19=sample(growthcycle19_outcomes,1,prob=c(.71, .29))}
-if(growthcycle18=='contraction'){growthcycle19=sample(growthcycle19_outcomes,1,prob=c(.99, .01))}
-
-#Election 8 2020
-election20_outcomes=c('lib','cons')
-if(growthcycle19=='expansion'){election20=sample(election20_outcomes,1,prob=c(.75, .25))}
-if(growthcycle19=='contraction'){election20=sample(election20_outcomes,1,prob=c(.67, .33))}
-
-pre_amt21=584454240 #<- ENTER REAL PRE 2021
-#Growth Cycle 2021
-growthcycle21_outcomes=c('expansion','contraction')
-if(election20=='lib'){growthcycle21=sample(growthcycle21_outcomes,1,prob=c(.99, .01))}
-if(election20=='cons'){growthcycle21=sample(growthcycle21_outcomes,1,prob=c(.67, .33))}
-exp_rate_noise=exp_rate+rnorm(1, 2.07, 0.64)
-cont_rate_noise=cont_rate+rnorm(1, 1.63, 1.27)
-
-if(growthcycle21=='expansion'){post_amt21q1=pre_amt21q1*exp_rate_noise}
-if(growthcycle21=='contraction'){post_amt21q1=pre_amt21q1*cont_rate_noise}
-
-insurance21q1=ifelse(growthcycle21=='expansion',0.60*post_amt21q1,0.90*post_amt21q1)
-covered21q1 <- insurance21q1/real2021q1
-results21q1[i,]=c('2021',pre_amt21q1,election20, growthcycle21,post_amt21q1,real2021q1, insurance21q1, covered21q1)
-
-if(growthcycle21=='expansion'){post_amt21q2=pre_amt21q2*exp_rate_noise}
-if(growthcycle21=='contraction'){post_amt21q2=pre_amt21q2*cont_rate_noise}
-
-insurance21q2=ifelse(growthcycle21=='expansion',0.60*post_amt21q2,0.90*post_amt21q2)
-covered21q2 <- insurance21q2/real2021q2
-results21q2[i,]=c('2021',pre_amt21q2,election20, growthcycle21,post_amt21q2,real2021q2, insurance21q2, covered21q2)
-
-if(growthcycle21=='expansion'){post_amt21q3=pre_amt21q3*exp_rate_noise}
-if(growthcycle21=='contraction'){post_amt21q3=pre_amt21q3*cont_rate_noise}
-
-insurance21q3=ifelse(growthcycle21=='expansion',0.60*post_amt21q3,0.90*post_amt21q3)
-covered21q3 <- insurance21q3/real2021q3
-results21q3[i,]=c('2021',pre_amt21q3,election20, growthcycle21,post_amt21q3,real2021q3, insurance21q3, covered21q3)
-}
 ```
 
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 grViz(diagram = "digraph flowchart {
   node [fontname = arial, shape = oval]
   tab1 [label = '@@1']
@@ -542,7 +165,7 @@ grViz(diagram = "digraph flowchart {
   [7]: 'Contraction'
   ")
 ```
-```{r}
+```{r, include = FALSE}
 Y <- c(ay98, ay99, ay00, ay01, ay02, ay03, ay04, ay05, ay06, ay07, ay08, ay09, ay10,
        ay11, ay12, ay13, ay14, ay15, ay16, ay17, ay18, ay19, ay20, ay21)
 X <- c(1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
@@ -553,14 +176,14 @@ plot(Y ~ X - 1)
 abline(regall, col = "blue")
 ```
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 par(mfrow=c(1,3))
 hist(fellow$Revenue, xlab="Revenue")
 plot(density(fellow$Revenue, na.rm=TRUE))
 plot(sort(fellow$Revenue),ylab="Sorted Revenue")
 ```
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 quantile(y98)
 quantile(y99)
 quantile(y02)
@@ -572,7 +195,7 @@ quantile(y17)
 quantile(y21)
 y21q1 <- quantile(y21, .25)
 ```
-```{r}
+```{r, include = FALSE}
 pre_amt99q1 <- quantile(y98, .25)
 pre_amt99q2 <- quantile(y98, .50)
 pre_amt99q3 <- quantile(y98, .75)
@@ -628,16 +251,7 @@ pre_amt21q3 <- quantile(y20, .75)
 real2021q1 <- quantile(y21, .25)
 real2021q2 <- quantile(y21, .50)
 real2021q3 <- quantile(y21, .75)
-```
 
-```{r}
-pre_amt08q2
-real2008q2
-```
-
-THIS LOOP
-When you see Growth Cycle, it really is Business Cycle. 
-```{r}
 #LOOP
 nIter=10000
 results99q1=matrix(nrow=nIter,ncol=8)
