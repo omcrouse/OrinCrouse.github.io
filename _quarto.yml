@@ -9,6 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - PRI.qmd
+      - ChainPulse.qmd
 
 format:
   html:
