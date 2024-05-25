@@ -165,9 +165,355 @@ nx.draw(all_time_g, with_labels=False, node_size=13, node_color=all_color)
 june_comm = nx.community.label_propagation_communities(june_g)
 community_index = {n: i for i, com in enumerate(june_comm) for n in com}
 
-plt.figure(figsize=(110 , 10))
+plt.figure(figsize=(10 , 10))
 plt.title('{:} Euler Transactions (June 2022)'.format(len(june.index)))
 june_color = [community_index[n] for n in june_g]
 print(len(june.index), 'Number Transactions for June')
 nx.draw(june_g, with_labels=False, node_size=5, node_color=june_color)
 ```
+
+
+```{python setup, echo = FALSE}
+plt.subplot(1,2,1)
+plt.scatter(june['timestamp'], june['to_ID'])
+plt.title('Buyer Transactions (June 2022)'.format(len(june.index)))
+
+plt.subplot(1,2,2)
+plt.scatter(june['from_ID'], june['to_ID'])
+plt.title('Seller Transactions (June 2022)'.format(len(june.index)))
+
+plt.tight_layout()
+```
+
+
+```{python echo = FALSE}
+#title Sorting and Defining Core-Periphery Structure
+
+edf.sort_values('block_timestamp', ascending = True)
+
+# data cleaning
+
+edf = edf[edf['timestamp']>='2021-12-30']
+edf = edf[edf['timestamp']<='2022-08-24']
+
+
+edf.to_csv('Euler Raw Transfer Data.csv')
+
+edf = edf.drop(columns = ['token_address','block_timestamp'])
+
+## add values between the 2 same addresses together
+edf[['from_address', 'to_address']] = np.sort(edf[['from_address', 'to_address']], axis=1)
+edf= edf.groupby(['timestamp','from_address','to_address']).agg(lambda x: sum(x)).reset_index()
+edf.to_csv('Euler transaction data_after preprocessing.csv')
+edf = pd.read_csv('Euler transaction data_after preprocessing.csv')
+
+##Network Analysis
+
+edf_time_partition= edf.groupby(['timestamp'])['to_address'].agg(['nunique']).reset_index()
+edf_time_partition = edf_time_partition.drop(['nunique'], axis=1)
+
+##Number of daily edges
+
+num_nodes = []
+num_edges = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # MultiDi Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of Number of nodes, number of edges
+    nodes = G.number_of_nodes()
+    edges = G.number_of_edges()
+    num_nodes.append(nodes)
+    num_edges.append(edges)
+
+    Network_Features={"num_nodes" : num_nodes,"num_edges" : num_edges}
+Network_Features=pd.DataFrame(Network_Features)
+Network_Features['time'] =  edf_time_partition['timestamp']
+
+### Degree Setting
+
+Degreemean = []
+Degreestd = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    #edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # MultiDi Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of Degree_centrality, mean_value
+    degrees = G.degree()
+    degree = list(dict(G.degree()).values())
+    edf_deg = {"Degree" : degree}
+    edf_deg = pd.DataFrame(edf_deg)
+    DC_mean = edf_deg['Degree'].mean()
+    DC_std = edf_deg['Degree'].std()
+    Degreemean.append(DC_mean)
+    Degreestd.append(DC_std)
+
+Network_Features['Degree mean']  = Degreemean
+Network_Features['Degree std']  = Degreestd
+
+##Extract Top 10 by ratio
+
+top10Degreemean = []
+top10Degreestd = []
+
+for i in range(0,len(edf_time_partition)):
+
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    sender_mdegree= edf_1.groupby(['from_address'])['to_address'].count().reset_index()
+    receiver_mdegree = edf_1.groupby(['to_address'])['from_address'].count().reset_index()
+    sender_mdegree = sender_mdegree.rename(columns={'to_address':'degree'})
+    sender_mdegree = sender_mdegree.rename(columns={'from_address':'address'})
+    receiver_mdegree = receiver_mdegree.rename(columns = {'from_address':'degree'})
+    receiver_mdegree = receiver_mdegree.rename(columns = {'to_address':'address'})
+
+    merge = pd.merge(sender_mdegree,receiver_mdegree,on="address",how = "outer")
+    merge = merge.fillna(int(0))
+    merge['degree'] = merge['degree_x']+merge['degree_y']
+
+    merge.sort_values(by=['degree'], ascending=False, inplace=True)
+    merge = merge.reset_index()
+    top5degree = merge['address'][0:10].tolist()
+
+    sen_top =  edf_1[edf_1['from_address'].isin(top5degree)]
+    rec_top= edf_1[edf_1['to_address'].isin(top5degree)]
+
+    topaddress = pd.concat([sen_top,rec_top]).drop_duplicates()
+
+    G = nx.from_pandas_edgelist(topaddress, 'from_address', 'to_address', 'value', nx.Graph())
+    # Calculation of absolute degree
+    degree = []
+    for j in range (0,2): ## MUST CHANGE BACK TO (0,10) LATER. FIND OUT WHY top5degree IS ONLY THREE VARIABLES
+        degrees = G.degree(top5degree[j])
+        degree.append(degrees)
+    edf_deg = {"Degree" : degree}
+    edf_deg = pd.DataFrame(edf_deg)
+    deg_mean = edf_deg['Degree'].mean()
+    deg_std = edf_deg['Degree'].std()
+    top10Degreemean.append(deg_mean)
+    top10Degreestd.append(deg_std)
+
+Network_Features['Top10Degree mean']  = top10Degreemean
+Network_Features['Top10Degree std']  = top10Degreestd
+
+Network_Features['Top10 Degree mean ratio']  = Network_Features['Top10Degree mean']/Network_Features['Degree mean']
+
+#The above code cells don't show much being there aren't 10 degrees found, but rather only two.
+#That means there are only two core nodes that reach the criteria to be considered core.
+#Already we see the Euler token to be more decentralized rather than central.
+
+### Degree centrality
+DCmean = []
+DCstd = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    #edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # MultiDi Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of Degree_centrality, mean_value
+    deg_cen = nx.degree_centrality(G)
+    edf_deg = pd.DataFrame.from_dict(deg_cen, orient='index', columns=['Degree_Centrality'])
+    DC_mean = edf_deg['Degree_Centrality'].mean()
+    DC_std = edf_deg['Degree_Centrality'].std()
+    DCmean.append(DC_mean)
+    DCstd.append(DC_std)
+
+#The above code cell redefines the core nodes found to double check and ensure the understanding of core is reached for the entire network.
+
+### Coefficient Clusters
+
+clustermean = []
+clusterstd = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    #edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # Unweighted-Directed Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of Clustering_Coefficient, mean_value, std
+    clustering = nx.clustering(G)
+    df_cluster = pd.DataFrame.from_dict(clustering, orient='index', columns=['Clustering_Coefficient'])
+    cluster_mean = df_cluster['Clustering_Coefficient'].mean()
+    cluster_std = df_cluster['Clustering_Coefficient'].std()
+    clustermean.append(cluster_mean)
+    clusterstd.append(cluster_std)
+
+#The above code cell is form the cluster by coefficient. This is for both core and periphery
+
+### Build Modularity
+
+mod_list = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    #edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # unweighted-undirected Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of modularity
+    part = community.best_partition(G)
+    mod = community.modularity(part,G)
+    mod_list.append(mod)
+
+    ### Build Transitivity
+
+    tran_list = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    #edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # Unweighted-undirected Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of transitivity,
+    tran = nx.transitivity(G)
+    tran_list.append(tran)
+
+### Centrality by Eigenvector
+
+eigmean = []
+eigstd = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    #edf_1 = actsenrec.loc[actsenrec['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # MultiDi Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of Closeness_centrality, mean_value
+    eig_cen = nx.eigenvector_centrality(G, max_iter=20000)
+    edf_eig = pd.DataFrame.from_dict(eig_cen, orient='index', columns=['eigenvector_centrality'])
+    eig_mean = edf_eig['eigenvector_centrality'].mean()
+    eig_std = edf_eig['eigenvector_centrality'].std()
+    eigmean.append(eig_mean)
+    eigstd.append(eig_std)
+
+### Closeness Centrality
+
+CCmean = []
+CCstd = []
+for i in range(0,len(edf_time_partition)):
+
+    # Data Partition
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+
+    # MultiDi Network Building (weighted-directed graph)
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+    # Calculation of Closeness_centrality, mean_value
+    close_cen = nx.closeness_centrality(G)
+    edf_close = pd.DataFrame.from_dict(close_cen, orient='index', columns=['Closeness_Centrality'])
+    CC_mean = edf_close['Closeness_Centrality'].mean()
+    CC_std = edf_close['Closeness_Centrality'].std()
+    CCmean.append(CC_mean)
+    CCstd.append(CC_std)
+
+### Number of components
+
+components_cnt = []
+for i in range(0,len(edf_time_partition)):
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+    com_cnt = nx.number_connected_components(G)
+    components_cnt.append(com_cnt)
+
+### Gaint component by size and number of nodes
+
+giant_com_ratio = []
+for i in range(0,len(edf_time_partition)):
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+# G = nx.Graph()
+    Gcc = sorted(nx.connected_components(G), key=len, reverse=True)
+    G0 = G.subgraph(Gcc[0])
+#com_cnt = nx.number_connected_components(G)
+#components_cnt.append(com_cnt)
+    nodes = G0.number_of_nodes()
+    nodes_whole = G.number_of_nodes()
+    ratio = nodes/nodes_whole
+    giant_com_ratio.append(ratio)
+
+### Save features output
+
+Network_Features['DCmean']=DCmean
+Network_Features['DCstd']=DCstd
+Network_Features['clustermean']=clustermean
+Network_Features['clusterstd']=clusterstd
+Network_Features['modularity']=mod_list
+Network_Features['transitivity']=tran_list
+Network_Features['eig_mean']=eigmean
+Network_Features['eig_std']=eigstd
+Network_Features['closenessmean']=CCmean
+Network_Features['closenessstd']=CCstd
+Network_Features['Components_cnt']=components_cnt
+Network_Features['giant_com_ratio']=giant_com_ratio
+
+Network_Features['token'] =  'Euler'
+#Network_Features
+
+Network_Features.to_csv('Euler_Network_Features.csv')
+```
+
+Construction of the continuous core-periphery structure using the Borgatti-Everett Algorithm. 
+
+```{python setup, echo = FALSE}
+#title Borgatti-Everett Algorithm
+
+edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][63]]
+G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+
+
+alg = cpnet.BE()
+alg.detect(G)
+c = alg.get_pair_id()
+x = alg.get_coreness()  # Get the coreness of nodes
+
+##coreness = pd.DataFrame.from_dict(x, orient='index', columns=['Coreness'])
+##corenessmean = coreness['Coreness'].mean()
+#corenessmean
+
+#sig_c, sig_x, significant, p_values = cpnet.qstest(
+#    c, x, G, alg, significance_level=0.05, num_of_rand_net=100, num_of_thread=16)
+
+#print(significant)
+#print(p_values)
+
+pos = nx.spiral_layout(G,scale = 1)
+fig = plt.figure(figsize=(8, 6))
+ax = plt.gca()
+ax, pos = cpnet.draw(G, c, x, ax, pos = pos)
+
+edf_2 = edf_1[['from_address', 'to_address', 'value']]
+#edf_2.tail()
+result = edf_2.dtypes
+#print(result)
+seller = edf_2.from_address.unique()
+buyer = edf_2.to_address.unique()
+```
+
+
+
+
+
+
