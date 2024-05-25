@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Orin Crouse"
+  resources: OrinCrouseResume.pdf
   navbar:
     left:
       - href: index.qmd
