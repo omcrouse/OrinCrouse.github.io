@@ -65,7 +65,14 @@ When computing you want $c_i,x_i \in(1 \leq i \leq N)$ not be maximized comparat
 $$Q^{cp}_{config} = \frac{1}{2M} \sum_{i=1}^N\sum_{j=1}^N A_{ij}A_{ij}^* - Ε [\frac{1}{2M} \sum_{i=1}^N \sum_{j=1}^{conf}(1-A_{ij}^*)]$$
 Using a configuration model where the expected number of edges between nodes $i$ and $j$ can be represented by $Ε[A_{ij}^{conf}]=\frac{d_id_j}{2M}$.
 
+
+#Data
+
 In the section titled "Construct Continuous Core-Periphery Structures", various graphs are formed, each with different algorithms.
+
+##Seeing the token's raw form of a network for the months of June through August, 3 continus months.
+
+countinus 
 
 ```{python setup, include = FALSE}
 
@@ -510,6 +517,20 @@ result = edf_2.dtypes
 #print(result)
 seller = edf_2.from_address.unique()
 buyer = edf_2.to_address.unique()
+```
+
+We continue witht he Kojaku-masda Algorithm to see a similar approach, but better given colors....
+
+```{python setup, echo = false}
+kmconfig = cpnet.KM_config()
+kmconfig.detect(G)
+
+c = kmconfig.get_pair_id()
+x = kmconfig.get_coreness()
+
+fig = plt.figure(figsize=(8, 6))
+ax = plt.gca()
+ax, _ = cpnet.draw(G, c, x, ax, pos=pos)
 ```
 
 
