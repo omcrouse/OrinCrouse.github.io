@@ -20,7 +20,7 @@ library(ggplot2)
 library(stringi)
 library(stringr)
 
-fellow <- read_csv("https://raw.githubusercontent.com/omcrouse/OrinCrouse/main/Fellow.csv")
+fellow <- read_csv("https://raw.githubusercontent.com/omcrouse/research/main/Fellow.csv", show_col_types = FALSE)
 ```
 
 ```{r, include = FALSE}
@@ -195,6 +195,7 @@ quantile(y17)
 quantile(y21)
 y21q1 <- quantile(y21, .25)
 ```
+
 ```{r, include = FALSE}
 pre_amt99q1 <- quantile(y98, .25)
 pre_amt99q2 <- quantile(y98, .50)
@@ -800,13 +801,21 @@ We sought to to answer the question "Why isn't political risk insurance used mor
 
 This idea came about because of **COVID-19***\#*\#*\#*#\*#
 
-{{< pagebreak >}} \# 2. Conceptual Framework
+{{< pagebreak >}} 
 
-The frame for this was to build essentially a flowchart, a really big flowchart. Starting with the first year 1998, as far back as we could go in finding the data (explained in later section). The year 1998 was an election for Canada and so the branches off of 1998 would be two, and labeled Liberal or Conservative. This is the same for each election year. Following an election year would be another set of two branches, one for Expansion and one for Contraction. These mark what the following year would be for the business cycle of Canada. In the first case we are saying given a Liberal/Conservative win in 1998, there could be a Expansion/Contraction in the year 1999. The time span we looked at is from 1998 to 2021, and in this time span there were 8 elections; 1998, 2001, 2005, 2007, 2009, 2012, 2016, 2020. Every year in between would be marked as a business cycle year. This model, as discussed more in further sections, could be built upon to add more variables, but for now we wanted see what impacted elections and the business cycle had on predicted revenue.
+# 2. Conceptual Framework
 
-For the purpose of this paper we looked at the year following an election. Did the result of that election have an impact of the business cycle that would lead to a decrease or increase in predicted revenue. For this, it is an input of the actual amount (again in 2022 dollars) earned by all companies at the start of an election year. Now this could be a wide range and differ quite a lot with companies entering and exiting the market, so we took the median amount each time. This would for better control and eliminate the risk of skewness due to outliers. This median amount is used, and then through processing (that it is described in better detail later), we receive a predicted amount at the end of the business cycle year. Comparing that to the actual earned amount we can see: one, how accurate
+The frame for this was to build essentially a flowchart. Starting with the election year 1998, which is as far back as we could go in finding the data (explained in later section). The year 1998 was an election for Canada and so their would be two branches off of 1998, labeled Liberal or Conservative. Given this will be the two main political parties, with one of the two usually being the winner of the elections even though there are more parties in Canada. This is the essentially same for each election year. Following an election year there is another set of branches, one for Expansion and one for Contraction. These mark what the following year would be for the business cycle of Canada. Business cycle is this case being the aggregate of the year for the country's overall GDP. Whether or not there would be an increase or decrease, expansion or contraction, respectively In the first case we are saying given a Liberal/Conservative win in 1998, there could be a Expansion/Contraction in the year 1999. The time span we looked at is from 1998 to 2021, and in this time span there were 8 elections; 1998, 2001, 2005, 2007, 2009, 2012, 2016, 2020. Every year in between would be marked as a business cycle year. This model, as discussed more in further sections, could be built upon to add more variables, but for now we wanted see what impacted elections and the business cycle had on predicted revenue.
 
-```{r}
+For the purpose of this paper we looked at the year following an election. We wanted to see if the result of that election would have an impact on the business cycle that would lead to a decrease or increase in predicted revenue. For this, it is an input of the actual amount earned by all companies. This is the combination of all companies so we see what the market produces rather than a single company. That and it would be difficult to track a single company throughout the years. A single company could be the top performer and be not be the following year or never again be the top performer. Now this could still be a wide range and differ quite a lot with companies entering and exiting the market, so we took the median amount each time. This would for better control and eliminate the risk of skewness due to outliers. The Canadian dollar (C$\$$) for this paper is converted into 2022 C$\$$ to account for inflation. Also this allows us to show the true growth with the market. With the median amount is used, and then through processing, we receive a predicted amount at the end of the business cycle year. Comparing that to the actual earned amount we can see:
+  <ol>
+    <li> The growth of the market that year. <li>
+    <li> How accurate our prediction was. <li>
+    <li> How well the market preformed in these cycles. <li>
+    <li> And lastly, the comparison of the out potential outcomes. <li>
+  </ol>
+
+```{r setup, echo = FALSE}
 #| fig-cap: "Flowchart base"
 #| cap-location: margin
 
@@ -858,7 +867,7 @@ Each year that falls in-between elections were tracked by the business cycle for
 
 The data was pulled, and formatted in order to show an easy representation that can be read easily. The dollar amount of each was translated with the Consumer Price Index (CPI) calculator (from the Bank of Canada) to show each year's revenue into the dollar amount of 2021. Meaning, given the graph below (Will Reformat tables and graphs to reference better) you can see that 1997's revenue dollar amount is multiplied by 1.5740 to be the equivalent amount if that was earned in 2021.
 
-```{r}
+```{r setup, echo = FALSE}
 #| fig-cap: "Revenue earned by all companies together per year. Each year is in today's dollars (as of 2022)."
 #| cap-location: margin
 
@@ -878,7 +887,7 @@ The results from the simulation was interesting to say the least. Different outc
 Among the well predicted
 
 
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.1999 <- r99q2$Growth_Cycleq2
 Election.Winner.1998 <- r99q2$Winner
 Insurance.1999 <-r99q2$Insuranceq2
@@ -892,7 +901,7 @@ plot99 <- ggplot(data99, aes(x=Business.Cycle.1999, y=Insurance.1999,
                   guide = guide_legend(override.aes = list(color = c('red', 'green'))))
 plot99
 ```
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.2002 <- r02q2$Growth_Cycleq2
 Election.Winner.2001 <- r02q2$Winner
 Insurance.2002 <-r02q2$Insuranceq2
@@ -907,7 +916,7 @@ plot02 <- ggplot(data02, aes(x=Business.Cycle.2002, y=Insurance.2002,
 plot02
 ```
 
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.2006 <- r06q2$Growth_Cycleq2
 Election.Winner.2005 <- r06q2$Winner
 Insurance.2006 <-r06q2$Insuranceq2
@@ -922,7 +931,7 @@ plot06 <- ggplot(data06, aes(x=Business.Cycle.2006, y=Insurance.2006,
 plot06
 ```
 
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.2008 <- r08q2$Growth_Cycleq2
 Election.Winner.2007 <- r08q2$Winner
 Insurance.2008 <- r08q2$Insuranceq2
@@ -937,7 +946,7 @@ plot08 <- ggplot(data08, aes(x=Business.Cycle.2008, y=Insurance.2008,
 plot08
 ```
 
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.2010 <- r10q2$Growth_Cycleq2
 Election.Winner.2009 <- r10q2$Winner
 Insurance.2010 <-r10q2$Insuranceq2
@@ -953,7 +962,7 @@ plot10
 ```
 
 
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.2013 <- r13q2$Growth_Cycleq2
 Election.Winner.2012 <- r13q2$Winner
 Insurance.2013 <-r13q2$Insuranceq2
@@ -969,7 +978,7 @@ plot13
 ```
 
 
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.2017 <- r17q2$Growth_Cycleq2
 Election.Winner.2016 <- r17q2$Winner
 Insurance.2017 <-r17q2$Insuranceq2
@@ -983,7 +992,7 @@ plot17 <- ggplot(data17, aes(x=Business.Cycle.2017, y=Insurance.2017,
                   guide = guide_legend(override.aes = list(color = c('red', 'green'))))
 plot17
 ```
-```{r}
+```{r setup, echo = FALSE}
 Business.Cycle.2021 <- r21q2$Growth_Cycleq2
 Election.Winner.2021 <- r21q2$Winner
 Insurance.2021 <-r21q2$Insuranceq2
@@ -997,4 +1006,3 @@ plot21 <- ggplot(data21, aes(x=Business.Cycle.2021, y=Insurance.2021,
                   guide = guide_legend(override.aes = list(color = c('red', 'green'))))
 plot21
 ```
-
