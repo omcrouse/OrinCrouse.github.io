@@ -7,9 +7,11 @@ format:
     code-fold: true
     code-tools: true
 editor: visual
+execute: 
+  echo: false
 ---
 
-```{r setup, include = FALSE}
+```{r}
 library(DiagrammeR)
 library(tibble)
 library(tidyr)
@@ -19,8 +21,9 @@ library(ggpubr)
 library(ggplot2)
 library(stringi)
 library(stringr)
+library(patchwork)
 
-fellow <- read_csv("https://raw.githubusercontent.com/omcrouse/research/main/Fellow.csv", show_col_types = FALSE)
+fellow <- read.csv("https://raw.githubusercontent.com/omcrouse/research/main/Fellow.csv")
 ```
 
 ```{r, include = FALSE}
@@ -136,8 +139,7 @@ real2021q2 <- quantile(y21, .50)
 real2021q3 <- quantile(y21, .75)
 ```
 
-
-```{r, include = FALSE}
+```{r}
 grViz(diagram = "digraph flowchart {
   node [fontname = arial, shape = oval]
   tab1 [label = '@@1']
@@ -165,7 +167,8 @@ grViz(diagram = "digraph flowchart {
   [7]: 'Contraction'
   ")
 ```
-```{r, include = FALSE}
+
+```{r}
 Y <- c(ay98, ay99, ay00, ay01, ay02, ay03, ay04, ay05, ay06, ay07, ay08, ay09, ay10,
        ay11, ay12, ay13, ay14, ay15, ay16, ay17, ay18, ay19, ay20, ay21)
 X <- c(1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
@@ -176,14 +179,14 @@ plot(Y ~ X - 1)
 abline(regall, col = "blue")
 ```
 
-```{r, include = FALSE}
+```{r}
 par(mfrow=c(1,3))
 hist(fellow$Revenue, xlab="Revenue")
 plot(density(fellow$Revenue, na.rm=TRUE))
 plot(sort(fellow$Revenue),ylab="Sorted Revenue")
 ```
 
-```{r, include = FALSE}
+```{r}
 quantile(y98)
 quantile(y99)
 quantile(y02)
@@ -196,7 +199,7 @@ quantile(y21)
 y21q1 <- quantile(y21, .25)
 ```
 
-```{r, include = FALSE}
+```{r}
 pre_amt99q1 <- quantile(y98, .25)
 pre_amt99q2 <- quantile(y98, .50)
 pre_amt99q3 <- quantile(y98, .75)
@@ -815,7 +818,7 @@ For the purpose of this paper we looked at the year following an election. We wa
     <li> And lastly, the comparison of the out potential outcomes. <li>
   </ol>
 
-```{r setup, echo = FALSE}
+```{r}
 #| fig-cap: "Flowchart base"
 #| cap-location: margin
 
@@ -867,7 +870,7 @@ Each year that falls in-between elections were tracked by the business cycle for
 
 The data was pulled, and formatted in order to show an easy representation that can be read easily. The dollar amount of each was translated with the Consumer Price Index (CPI) calculator (from the Bank of Canada) to show each year's revenue into the dollar amount of 2021. Meaning, given the graph below (Will Reformat tables and graphs to reference better) you can see that 1997's revenue dollar amount is multiplied by 1.5740 to be the equivalent amount if that was earned in 2021.
 
-```{r setup, echo = FALSE}
+```{r}
 #| fig-cap: "Revenue earned by all companies together per year. Each year is in today's dollars (as of 2022)."
 #| cap-location: margin
 
@@ -887,7 +890,7 @@ The results from the simulation was interesting to say the least. Different outc
 Among the well predicted
 
 
-```{r setup, echo = FALSE}
+```{r}
 Business.Cycle.1999 <- r99q2$Growth_Cycleq2
 Election.Winner.1998 <- r99q2$Winner
 Insurance.1999 <-r99q2$Insuranceq2
@@ -901,7 +904,8 @@ plot99 <- ggplot(data99, aes(x=Business.Cycle.1999, y=Insurance.1999,
                   guide = guide_legend(override.aes = list(color = c('red', 'green'))))
 plot99
 ```
-```{r setup, echo = FALSE}
+
+```{r}
 Business.Cycle.2002 <- r02q2$Growth_Cycleq2
 Election.Winner.2001 <- r02q2$Winner
 Insurance.2002 <-r02q2$Insuranceq2
@@ -916,7 +920,7 @@ plot02 <- ggplot(data02, aes(x=Business.Cycle.2002, y=Insurance.2002,
 plot02
 ```
 
-```{r setup, echo = FALSE}
+```{r}
 Business.Cycle.2006 <- r06q2$Growth_Cycleq2
 Election.Winner.2005 <- r06q2$Winner
 Insurance.2006 <-r06q2$Insuranceq2
@@ -931,7 +935,7 @@ plot06 <- ggplot(data06, aes(x=Business.Cycle.2006, y=Insurance.2006,
 plot06
 ```
 
-```{r setup, echo = FALSE}
+```{r}
 Business.Cycle.2008 <- r08q2$Growth_Cycleq2
 Election.Winner.2007 <- r08q2$Winner
 Insurance.2008 <- r08q2$Insuranceq2
@@ -946,7 +950,7 @@ plot08 <- ggplot(data08, aes(x=Business.Cycle.2008, y=Insurance.2008,
 plot08
 ```
 
-```{r setup, echo = FALSE}
+```{r}
 Business.Cycle.2010 <- r10q2$Growth_Cycleq2
 Election.Winner.2009 <- r10q2$Winner
 Insurance.2010 <-r10q2$Insuranceq2
@@ -962,7 +966,7 @@ plot10
 ```
 
 
-```{r setup, echo = FALSE}
+```{r}
 Business.Cycle.2013 <- r13q2$Growth_Cycleq2
 Election.Winner.2012 <- r13q2$Winner
 Insurance.2013 <-r13q2$Insuranceq2
@@ -978,7 +982,7 @@ plot13
 ```
 
 
-```{r setup, echo = FALSE}
+```{r}
 Business.Cycle.2017 <- r17q2$Growth_Cycleq2
 Election.Winner.2016 <- r17q2$Winner
 Insurance.2017 <-r17q2$Insuranceq2
@@ -992,7 +996,8 @@ plot17 <- ggplot(data17, aes(x=Business.Cycle.2017, y=Insurance.2017,
                   guide = guide_legend(override.aes = list(color = c('red', 'green'))))
 plot17
 ```
-```{r setup, echo = FALSE}
+
+```{r}
 Business.Cycle.2021 <- r21q2$Growth_Cycleq2
 Election.Winner.2021 <- r21q2$Winner
 Insurance.2021 <-r21q2$Insuranceq2
@@ -1005,4 +1010,10 @@ plot21 <- ggplot(data21, aes(x=Business.Cycle.2021, y=Insurance.2021,
                   name ="Revenue Totals", values = c(1,1), 
                   guide = guide_legend(override.aes = list(color = c('red', 'green'))))
 plot21
+```
+
+
+
+```{r}
+plot99|plot02|plot06|plot08|plot10|plot13|plot17|plot21
 ```

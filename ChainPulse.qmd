@@ -7,6 +7,8 @@ format:
     code-fold: true
     code-tools: true
 editor: visual
+execute: 
+  echo: false
 ---
 
 <h1 style="text-align: center;">
@@ -155,7 +157,7 @@ week9_g = nx.from_pandas_edgelist(week9, source='from_ID', target='to_ID', edge_
 week10_g = nx.from_pandas_edgelist(week10, source='from_ID', target='to_ID', edge_attr='value')
 ```
 
-```{python setup, echo = FALSE}
+```{python}
 
 all_comm = nx.community.label_propagation_communities(all_time_g)
 community_index = {n: i for i, com in enumerate(all_comm) for n in com}
@@ -167,7 +169,7 @@ print(len(all_time.index), 'Number Transactions for the entire data set')
 nx.draw(all_time_g, with_labels=False, node_size=13, node_color=all_color)
 ```
 
-```{python set, echo = false}
+```{python}
 
 june_comm = nx.community.label_propagation_communities(june_g)
 community_index = {n: i for i, com in enumerate(june_comm) for n in com}
@@ -180,7 +182,7 @@ nx.draw(june_g, with_labels=False, node_size=5, node_color=june_color)
 ```
 
 
-```{python setup, echo = FALSE}
+```{python}
 plt.subplot(1,2,1)
 plt.scatter(june['timestamp'], june['to_ID'])
 plt.title('Buyer Transactions (June 2022)'.format(len(june.index)))
@@ -193,7 +195,7 @@ plt.tight_layout()
 ```
 
 
-```{python echo = FALSE}
+```{python}
 #title Sorting and Defining Core-Periphery Structure
 
 edf.sort_values('block_timestamp', ascending = True)
@@ -484,7 +486,7 @@ Network_Features.to_csv('Euler_Network_Features.csv')
 
 Construction of the continuous core-periphery structure using the Borgatti-Everett Algorithm. 
 
-```{python setup, echo = FALSE}
+```{python}
 #title Borgatti-Everett Algorithm
 
 edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][63]]
@@ -521,7 +523,7 @@ buyer = edf_2.to_address.unique()
 
 We continue with the Kojaku-Masda Algorithm to see a similar approach, but better given colors....
 
-```{python setup, echo = false}
+```{python}
 kmconfig = cpnet.KM_config()
 kmconfig.detect(G)
 
@@ -535,7 +537,118 @@ ax, _ = cpnet.draw(G, c, x, ax, pos = pos)
 ```
 
 
+```{python}
+#Conform Core Addresses by Date Counts
+core_address = []
+a = 0
+for i in range(0,len(edf_time_partition)):
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+    alg = cpnet.BE()
+    alg.detect(G)
+    c = alg.get_pair_id()
+    x = alg.get_coreness()
+
+    coredf = pd.DataFrame.from_dict(x, orient='index',columns=['coreness'])
+    core = coredf[coredf['coreness']==1].index.tolist()
+    core_address.extend(core)
+    a+=1
+    #print(a)
+
+cores = pd.DataFrame(core_address)
+core_cnt = cores[0].value_counts(ascending=False).reset_index()
+#core_cnt
+
+core_cnt.to_csv('core_date_cnt.csv')
 
 
+#Number of Core Members Each Day
+core_cnt = []
+for i in range(0,len(edf_time_partition)):
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+    alg = cpnet.BE()
+    alg.detect(G)
+    c = alg.get_pair_id()
+    x = alg.get_coreness()
+
+    coredf = pd.DataFrame.from_dict(x, orient='index',columns=['coreness'])
+    core = coredf[coredf['coreness']==1].index.tolist()
+    cnt = len(core)
+    core_cnt.append(cnt)
+
+print("Minimum for a day is :",np.min(core_cnt))
+print("Maximum for a day is :",np.max(core_cnt))
+print("Total for all days is :",np.sum(core_cnt))
+
+#Average Number of Neighbors of Cores
+
+avg_core_neighbor = []
+
+for i in range(0,len(edf_time_partition)):
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][0]]
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+    alg = cpnet.BE()
+    alg.detect(G)
+    c = alg.get_pair_id()
+    x = alg.get_coreness()
+
+coredf = pd.DataFrame.from_dict(x, orient='index',columns=['coreness'])
+core = coredf[coredf['coreness']==1].index.tolist()
+
+neighbor_cnt = []
+for i in range (0,len(core)):
+    neighbor = G.degree(core[i])
+    neighbor_cnt.append(neighbor)
+
+neighbor_cnt_mean = mean(neighbor_cnt)
+avg_core_neighbor.append(neighbor_cnt_mean)
+
+print("Average Neighbors to Cores", np.sum(neighbor_cnt_mean))
 
 
+#Network Dynamics NEED TO FILL IN THE REMAINING, last graph
+
+edf_2 = pd.read_csv('Euler_Network_Features.csv')
+
+fig,axes = plt.subplots(3,2)
+plt.style.use('default')
+#plt.style.use('seaborn-pastel')
+ax = edf_2[['Components_cnt']].plot(ax = axes[0,0], figsize=(13,10), grid=False, title='Number of components',xlabel=' ')
+ax.set_yscale('log')
+edf_2[['giant_com_ratio']].plot(ax = axes[0,1], figsize=(13,7), grid=False, title='Giant component size ratio',xlabel=' ')
+edf_2[['modularity']].plot(ax = axes[1,0], figsize=(13,7), grid=False, title='Modularity',xlabel=' ')
+#edf_2[['relative_degree']].plot(ax = axes[1,0], figsize=(13,10), grid=False, title='Relative degree',xlabel=' ')
+edf_2[['DCstd']].plot(ax = axes[1,1], figsize=(13,7), grid=False, title='Std of Degree Centrality',xlabel=' ')
+#edf_2[['cp_test_pvalue']].plot(ax = axes[2,0], figsize=(13,11), grid=False, title='p-value of cp test',xlabel=' ')
+#edf_2[['core_cnt']].plot(ax = axes[2,1], figsize=(13,11), grid=False, title='number of cores',xlabel=' ')
+edf_2[['Top10 Degree mean ratio']].plot(ax = axes[2,0], figsize=(13,10), grid=False, title='Top10 nodes avg degree / general avg degree',xlabel=' ')
+#edf_2[['giant_com_ratio']].plot(ax = axes[2,1], figsize=(13,10), grid=False, title='Giant component size ratio',xlabel=' ')
+
+plt.subplots_adjust(wspace =0.15, hspace =0.35)
+```
+
+
+##3.? Breakdown
+
+**Number of Components**: We expect a *smaller* number of componenets to indicate a more *centralized* network. The number of components is fairly random with an exception toward the beginning of the recorded data.
+
+**Giant Component Size Ratio**: A *larger* giant component size ratio indicates a more *centralized* network. In our data, the giant component ratio starts high (suggesting more centralization early on), then becomes random, similar to the number of components.
+
+**Modulatiry**: A *smaller* modularity score suggests a more *centralized* network. Modularity for the Ether token starts low, but quickly rises, and stays fairly stable past day 15. This indicates a more centralized network in early days that becomes decentralized and stays decentralized after a couple of weeks. However, while the modularity for Euler settles around 0.6, the modularity for the AAVE token (found in the original paper) settles around 0.8 before dropping down to 0.7, a possible indication that AAVE is more decentralized than Euler.
+
+**Standard Deviation of Degree Centrality**: A *higher* standard deviation suggests a more *centralized* network. Standard deviation for Euler starts high but quickly falls by day five, where is stays steady. Like the modularity scores, this suggests a more centralized network early on that quickly becomes and stays decentralized.
+
+
+#4 Conclusion
+
+While the prior study on the AAVE token suggested that there was a high level of centralization, our study with the Euler token does **not** indicate a centralized finance network. However, the tokens have similar trends in decentralization over time. Both tokens begin incredibly centralized, which should not be surprising since most tokens start from one central source. Over a few weeks, all tokens see an increase in the level of decentralization before eventually settling at a point that is certainly decentralized by definition, although both tokens’ networks maintain centralized aspects. This is most visible in the network graphs, where one account has edges linked to a noticeably large number of other accounts. However, the graphs change over time to reflect trends we see in other variables studied (number of components, giant component size ratio, standard deviation of degree centrality, modularity), in that all tokens’ trading networks are centralized when the tokens are created, but become decentralized a short time after trading begins.
+
+Personal takeaways from this project include getting a wider understanding of cryptocurrency trading and decentralized finance, utilizing graph theory to visualize trade networks, using data to study changes over time, and applying mathematical concepts to real world data.
+
+We hope our reults help our sponsor (Chainpulse) better understand the transaction networks they study on the Ethereum blockchain so that they can better develop their own research and analytics of cryptocurrency trading.
+
+#5 Citiations
+
+Ao, Ziqiao, Gergely Horvath, and Luyao Zhang. "Is decentralized finance really decentralized? A social network analysis of the Aave protocol on the Ethereum blockchain." arXiv preprint arXiv:2206.08401 (2022). [1] <br>
+Kojaku, Sadamori, and Naoki Masuda. "Core-periphery structure requires something else in the network." New Journal of physics 20.4 (2018): 043012. [2]
