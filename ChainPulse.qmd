@@ -75,7 +75,6 @@ In the section titled "Construct Continuous Core-Periphery Structures", various 
 ## 3.1 Seeing the token's raw form of a network for the months of June through August, 3 continuous months.
 
  
-
 ```{python setup, include = FALSE}
 
 #!pip install matplotlib==3.5.1 &> /dev/null
@@ -193,7 +192,6 @@ plt.title('Seller Transactions (June 2022)'.format(len(june.index)))
 
 plt.tight_layout()
 ```
-
 
 ```{python}
 #title Sorting and Defining Core-Periphery Structure
@@ -418,6 +416,21 @@ for i in range(0,len(edf_time_partition)):
     eigmean.append(eig_mean)
     eigstd.append(eig_std)
 
+### Core Count
+core_cnt = []
+for i in range(0,len(edf_time_partition)):
+    edf_1 = edf.loc[edf['timestamp']==edf_time_partition['timestamp'][i]]
+    G = nx.from_pandas_edgelist(edf_1, 'from_address', 'to_address', 'value', nx.Graph())
+    alg = cpnet.BE()
+    alg.detect(G)
+    c = alg.get_pair_id()
+    x = alg.get_coreness()
+
+    coredf = pd.DataFrame.from_dict(x, orient='index',columns=['coreness'])
+    core = coredf[coredf['coreness']==1].index.tolist()
+    cnt = len(core)
+    core_cnt.append(cnt)
+
 ### Closeness Centrality
 
 CCmean = []
@@ -477,12 +490,18 @@ Network_Features['closenessmean']=CCmean
 Network_Features['closenessstd']=CCstd
 Network_Features['Components_cnt']=components_cnt
 Network_Features['giant_com_ratio']=giant_com_ratio
+Network_Features['core_cnt']=core_cnt
+Network_Features['top10Degreemean']=top10Degreemean
+Network_Features['top10Degreestd']=top10Degreestd
+Network_Features['core_cnt']=core_cnt
 
 Network_Features['token'] =  'Euler'
 #Network_Features
 
 Network_Features.to_csv('Euler_Network_Features.csv')
 ```
+
+
 
 Construction of the continuous core-periphery structure using the Borgatti-Everett Algorithm. 
 
@@ -577,10 +596,6 @@ for i in range(0,len(edf_time_partition)):
     cnt = len(core)
     core_cnt.append(cnt)
 
-print("Minimum for a day is :",np.min(core_cnt))
-print("Maximum for a day is :",np.max(core_cnt))
-print("Total for all days is :",np.sum(core_cnt))
-
 #Average Number of Neighbors of Cores
 
 avg_core_neighbor = []
@@ -614,15 +629,15 @@ edf_2 = pd.read_csv('Euler_Network_Features.csv')
 fig,axes = plt.subplots(3,2)
 plt.style.use('default')
 #plt.style.use('seaborn-pastel')
-ax = edf_2[['Components_cnt']].plot(ax = axes[0,0], figsize=(13,10), grid=False, title='Number of components',xlabel=' ')
+ax = edf_2[['Components_cnt']].plot(ax = axes[0,0], figsize=(10,10), grid=False, title='Number of components',xlabel=' ')
 ax.set_yscale('log')
-edf_2[['giant_com_ratio']].plot(ax = axes[0,1], figsize=(13,7), grid=False, title='Giant component size ratio',xlabel=' ')
-edf_2[['modularity']].plot(ax = axes[1,0], figsize=(13,7), grid=False, title='Modularity',xlabel=' ')
+edf_2[['giant_com_ratio']].plot(ax = axes[0,1], figsize=(10,10), grid=False, title='Giant component size ratio',xlabel=' ')
+edf_2[['modularity']].plot(ax = axes[1,0], figsize=(10,10), grid=False, title='Modularity',xlabel=' ')
 #edf_2[['relative_degree']].plot(ax = axes[1,0], figsize=(13,10), grid=False, title='Relative degree',xlabel=' ')
-edf_2[['DCstd']].plot(ax = axes[1,1], figsize=(13,7), grid=False, title='Std of Degree Centrality',xlabel=' ')
+edf_2[['DCstd']].plot(ax = axes[1,1], figsize=(10,10), grid=False, title='Std of Degree Centrality',xlabel=' ')
 #edf_2[['cp_test_pvalue']].plot(ax = axes[2,0], figsize=(13,11), grid=False, title='p-value of cp test',xlabel=' ')
-#edf_2[['core_cnt']].plot(ax = axes[2,1], figsize=(13,11), grid=False, title='number of cores',xlabel=' ')
-edf_2[['Top10 Degree mean ratio']].plot(ax = axes[2,0], figsize=(13,10), grid=False, title='Top10 nodes avg degree / general avg degree',xlabel=' ')
+edf_2[['Top10 Degree mean ratio']].plot(ax = axes[2,0], figsize=(10,10), grid=False, title='Top10 nodes avg degree / general avg degree',xlabel=' ')
+edf_2[['core_cnt']].plot(ax = axes[2,1], figsize=(10,10), grid=False, title='Number of cores',xlabel=' ')
 #edf_2[['giant_com_ratio']].plot(ax = axes[2,1], figsize=(13,10), grid=False, title='Giant component size ratio',xlabel=' ')
 
 plt.subplots_adjust(wspace =0.15, hspace =0.35)
