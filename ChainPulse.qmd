@@ -644,7 +644,7 @@ plt.subplots_adjust(wspace =0.15, hspace =0.35)
 ```
 
 
-##3.? Breakdown
+##3.2 Breakdown
 
 **Number of Components**: We expect a *smaller* number of componenets to indicate a more *centralized* network. The number of components is fairly random with an exception toward the beginning of the recorded data.
 
