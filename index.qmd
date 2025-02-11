@@ -13,6 +13,9 @@ about:
     - text: Github
       icon: github
       href: https://github.com/omcrouse
+    - text: Resume
+      icon: file-text
+      href: OrinCrouseResume
 ---
 
 
