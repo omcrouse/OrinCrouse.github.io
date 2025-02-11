@@ -1,7 +1,6 @@
 ---
 title: "My Name is Orin Crouse"
 image: headshot1.png
-resources: OrinCrouseResume.pdf
 about:
   template: solana
   image-shape: rounded
