@@ -11,7 +11,7 @@ execute:
   echo: false
 ---
 
-```{r, include=FALSE}
+```{r}
 library(DiagrammeR)
 library(tibble)
 library(tidyr)
@@ -26,7 +26,7 @@ library(patchwork)
 fellow <- read.csv("https://raw.githubusercontent.com/omcrouse/research/main/Fellow.csv")
 ```
 
-```{r, include = FALSE}
+```{r}
 y97 <- subset(fellow, select = Revenue, Year == "1997", drop = T)
 y98 <- subset(fellow, select = Revenue, Year == "1998", drop = T)
 y99 <- subset(fellow, select = Revenue, Year == "1999", drop = T)
@@ -168,7 +168,7 @@ grViz(diagram = "digraph flowchart {
   ")
 ```
 
-```{r, include=FALSE}
+```{r}
 Y <- c(ay98, ay99, ay00, ay01, ay02, ay03, ay04, ay05, ay06, ay07, ay08, ay09, ay10,
        ay11, ay12, ay13, ay14, ay15, ay16, ay17, ay18, ay19, ay20, ay21)
 X <- c(1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
@@ -179,14 +179,14 @@ plot(Y ~ X - 1)
 abline(regall, col = "blue")
 ```
 
-```{r, include=FALSE}
+```{r}
 par(mfrow=c(1,3))
 hist(fellow$Revenue, xlab="Revenue")
 plot(density(fellow$Revenue, na.rm=TRUE))
 plot(sort(fellow$Revenue),ylab="Sorted Revenue")
 ```
 
-```{r, include=FALSE}
+```{r}
 quantile(y98)
 quantile(y99)
 quantile(y02)
@@ -199,7 +199,7 @@ quantile(y21)
 y21q1 <- quantile(y21, .25)
 ```
 
-```{r, include=FALSE}
+```{r}
 pre_amt99q1 <- quantile(y98, .25)
 pre_amt99q2 <- quantile(y98, .50)
 pre_amt99q3 <- quantile(y98, .75)
@@ -825,8 +825,6 @@ How well the market preformed in these cycles.
 <li>
 
 And lastly, the comparison of the out potential outcomes.
-
-<li>
 
 </ol>
 
