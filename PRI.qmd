@@ -1,7 +1,8 @@
 ---
 title: "PRI Canadian O&G"
 author: Orin Crouse, Erin Austin, Adam Spiegler
-date: "2022-12-15""
+date: "2022-12-15"
+date-format: "%B %d, %Y"
 format:
   html:
     code-fold: true
