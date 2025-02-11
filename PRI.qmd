@@ -11,7 +11,7 @@ execute:
   echo: false
 ---
 
-```{r}
+```{r, include=FALSE}
 library(DiagrammeR)
 library(tibble)
 library(tidyr)
@@ -139,7 +139,7 @@ real2021q2 <- quantile(y21, .50)
 real2021q3 <- quantile(y21, .75)
 ```
 
-```{r}
+```{r, include=FALSE}
 grViz(diagram = "digraph flowchart {
   node [fontname = arial, shape = oval]
   tab1 [label = '@@1']
@@ -168,7 +168,7 @@ grViz(diagram = "digraph flowchart {
   ")
 ```
 
-```{r}
+```{r, include=FALSE}
 Y <- c(ay98, ay99, ay00, ay01, ay02, ay03, ay04, ay05, ay06, ay07, ay08, ay09, ay10,
        ay11, ay12, ay13, ay14, ay15, ay16, ay17, ay18, ay19, ay20, ay21)
 X <- c(1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
@@ -179,14 +179,14 @@ plot(Y ~ X - 1)
 abline(regall, col = "blue")
 ```
 
-```{r}
+```{r, include=FALSE}
 par(mfrow=c(1,3))
 hist(fellow$Revenue, xlab="Revenue")
 plot(density(fellow$Revenue, na.rm=TRUE))
 plot(sort(fellow$Revenue),ylab="Sorted Revenue")
 ```
 
-```{r}
+```{r, include=FALSE}
 quantile(y98)
 quantile(y99)
 quantile(y02)
@@ -199,7 +199,7 @@ quantile(y21)
 y21q1 <- quantile(y21, .25)
 ```
 
-```{r}
+```{r, include=FALSE}
 pre_amt99q1 <- quantile(y98, .25)
 pre_amt99q2 <- quantile(y98, .50)
 pre_amt99q3 <- quantile(y98, .75)
@@ -776,11 +776,7 @@ r21df <- data.frame(r21realall, r21insurance, r21post, r21covered)
 
 <h1 style="text-align: center;">
 
-Political Risk Insurance
-<br>
-for
-<br>
-Canadian Oil and Gas Companies
+Political Risk Insurance <br> for <br> Canadian Oil and Gas Companies
 
 </h1>
 
@@ -802,21 +798,37 @@ This paper explores the concept of Political Risk Insurance (PRI) for Canadian O
 
 We sought to to answer the question "Why isn't political risk insurance used more widely and freely?". For our discussion we wanted to narrow the focus down. Down to one market in a single country. The reason to choose oil and gas was because there would be, as we hoped, more data available along with more controversies surrounding oil and gas. This would lead to better findings and stronger statements.
 
-This idea came about because of **COVID-19***\#*\#*\#*#\*#
+This idea came about because of **COVID-19**. Did the market lose money? Could that loss of money been recuperated through political influence or an insurance program? This paper seeks to show what difference would have been through either of the major political parties having majority control.
 
-{{< pagebreak >}} 
+{{< pagebreak >}}
 
 # 2. Conceptual Framework
 
 The frame for this was to build essentially a flowchart. Starting with the election year 1998, which is as far back as we could go in finding the data (explained in later section). The year 1998 was an election for Canada and so their would be two branches off of 1998, labeled Liberal or Conservative. Given this will be the two main political parties, with one of the two usually being the winner of the elections even though there are more parties in Canada. This is the essentially same for each election year. Following an election year there is another set of branches, one for Expansion and one for Contraction. These mark what the following year would be for the business cycle of Canada. Business cycle is this case being the aggregate of the year for the country's overall GDP. Whether or not there would be an increase or decrease, expansion or contraction, respectively In the first case we are saying given a Liberal/Conservative win in 1998, there could be a Expansion/Contraction in the year 1999. The time span we looked at is from 1998 to 2021, and in this time span there were 8 elections; 1998, 2001, 2005, 2007, 2009, 2012, 2016, 2020. Every year in between would be marked as a business cycle year. This model, as discussed more in further sections, could be built upon to add more variables, but for now we wanted see what impacted elections and the business cycle had on predicted revenue.
 
 For the purpose of this paper we looked at the year following an election. We wanted to see if the result of that election would have an impact on the business cycle that would lead to a decrease or increase in predicted revenue. For this, it is an input of the actual amount earned by all companies. This is the combination of all companies so we see what the market produces rather than a single company. That and it would be difficult to track a single company throughout the years. A single company could be the top performer and be not be the following year or never again be the top performer. Now this could still be a wide range and differ quite a lot with companies entering and exiting the market, so we took the median amount each time. This would for better control and eliminate the risk of skewness due to outliers. The Canadian dollar (C$\$$) for this paper is converted into 2022 C$\$$ to account for inflation. Also this allows us to show the true growth with the market. With the median amount is used, and then through processing, we receive a predicted amount at the end of the business cycle year. Comparing that to the actual earned amount we can see:
-  <ol>
-    <li> The growth of the market that year. <li>
-    <li> How accurate our prediction was. <li>
-    <li> How well the market preformed in these cycles. <li>
-    <li> And lastly, the comparison of the out potential outcomes. <li>
-  </ol>
+
+<ol>
+
+<li>
+
+The growth of the market that year.
+
+<li>
+
+How accurate our prediction was.
+
+<li>
+
+How well the market preformed in these cycles.
+
+<li>
+
+And lastly, the comparison of the out potential outcomes.
+
+<li>
+
+</ol>
 
 ```{r}
 #| fig-cap: "Flowchart base"
@@ -852,7 +864,7 @@ grViz(diagram = "digraph flowchart {
 )
 ```
 
-{{< pagebreak >}} 
+{{< pagebreak >}}
 
 # 3. Data
 
@@ -862,9 +874,9 @@ Data was primarily observed from The System for Electronic Document Analysis and
 
 We used SEDAR as the point of reference to collect oil and gas producing revenue from as many oil and gas companies from Canada that are reported and filled at SEDAR. These fillings go back to 1990, but most data only dates back to 1997 and this is where the *discussion* starts. Using the median value of revenue from all oil and gas companies from 1997, \$2.09 billion (Canadian dollars). This amount is translated with inflation into today's current dollars. This process was accomplished by using data from the Economic Research in the U.S. Federal Reserve Bank of St. Louis (FRED)
 
-The following years were observed to look at elections from 1998 to 2021 from the website directly from the Parliament of Canada. This was to determine which parties were elected to the majority and the probability of those parties. The probabilities were found from various polling firms. From these polls, the data taken was only pertaining to the liberal and conservative parties. The other parties were left out as to they did provide a significant impact (**Insert Evidence**)
+The following years were observed to look at elections from 1998 to 2021 from the website directly from the Parliament of Canada. This was to determine which parties were elected to the majority and the probability of those parties. The probabilities were found from various polling firms. From these polls, the data taken was only pertaining to the liberal and conservative parties. The other parties were left out as to they did provide a significant impact.
 
-Each year that falls in-between elections were tracked by the business cycle for Canada, whether the aggregate of each year individually was an expansion year or contraction year. Although the business cycle fluctuates more within a year, the aggregate for the whole year was used as this influences voting more so (**Insert Evidence**). This data was found from FRED.
+Each year that falls in-between elections were tracked by the business cycle for Canada, whether the aggregate of each year individually was an expansion year or contraction year. Although the business cycle fluctuates more within a year, the aggregate for the whole year was used as this influences voting more so. This data was found from FRED.
 
 ## 3.2 Data processing
 
@@ -887,8 +899,7 @@ The amount for post year is used to determine an insurance amount. This amount i
 
 The results from the simulation was interesting to say the least. Different outcomes came from different inputs, as expected, but when there were similar inputs, there were not so similar outputs. \^&. We also see when there are different inputs, there would be similar outputs. For example, the years 1999 and 2021, both followed elections that led to a Liberal win. Now 1999 was an expansion year while 2021 was a contraction. For both years the prediction model under performed greatly from the actual end of year amount was (2021 even more so). How can we explain the differences? This would a be a great question for another analysis, all we can say is that different time periods are less predictable than others.
 
-Among the well predicted
-
+Among the well predicted,
 
 ```{r}
 Business.Cycle.1999 <- r99q2$Growth_Cycleq2
@@ -965,7 +976,6 @@ plot10 <- ggplot(data10, aes(x=Business.Cycle.2010, y=Insurance.2010,
 plot10
 ```
 
-
 ```{r}
 Business.Cycle.2013 <- r13q2$Growth_Cycleq2
 Election.Winner.2012 <- r13q2$Winner
@@ -980,7 +990,6 @@ plot13 <- ggplot(data13, aes(x=Business.Cycle.2013, y=Insurance.2013,
                   guide = guide_legend(override.aes = list(color = c('red', 'green'))))
 plot13
 ```
-
 
 ```{r}
 Business.Cycle.2017 <- r17q2$Growth_Cycleq2
@@ -1012,8 +1021,5 @@ plot21 <- ggplot(data21, aes(x=Business.Cycle.2021, y=Insurance.2021,
 plot21
 ```
 
-
-
-```{r}
-plot99|plot02|plot06|plot08|plot10|plot13|plot17|plot21
+```{}
 ```
