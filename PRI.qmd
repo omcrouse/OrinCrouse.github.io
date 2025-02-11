@@ -1,7 +1,7 @@
 ---
 title: "PRI Canadian O&G"
 author: Orin Crouse, Erin Austin, Adam Spiegler
-date: December 15th, 2022
+date: December 15, 2022
 format:
   html:
     code-fold: true
@@ -1021,5 +1021,5 @@ plot21 <- ggplot(data21, aes(x=Business.Cycle.2021, y=Insurance.2021,
 plot21
 ```
 
-```{}
+```         
 ```
