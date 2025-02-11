@@ -15,7 +15,7 @@ about:
       href: https://github.com/omcrouse
     - text: Resume
       icon: file-text
-      href: OrinCrouseResume
+      href: OrinCrouseResume.pdf
 ---
 
 
