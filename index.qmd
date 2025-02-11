@@ -1,7 +1,7 @@
 ---
 title: "My Name is Orin Crouse"
 image: headshot1.png
-resources: Resume.pdf
+resources: resume.pdf
 about:
   template: solana
   image-shape: rounded
@@ -15,7 +15,7 @@ about:
       href: https://github.com/omcrouse
     - text: my resume
       icon: file-text
-      href: Resume.pdf
+      href: resume.pdf
 ---
 
 
